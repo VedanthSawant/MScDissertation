@@ -1,0 +1,1292 @@
+\documentclass[12pt, a4paper,oneside]{book}
+\newcommand{\re}{\mathrm{e}}
+\newcommand{\ri}{\mathrm{i}}
+\newcommand{\rd}{\mathrm{d}}
+\def\semicolon{\nobreak\mskip2mu\mathpunct{}\nonscript\mkern-\thinmuskip{;}
+\mskip6muplus1mu\relax} % This defines the semicolon command
+
+        % allows index generation
+\usepackage{graphicx}        % standard LaTeX graphics tool
+                             % when including figure files
+\usepackage{multicol}        % used for the two-column index
+
+\usepackage{color,tikz}
+%\usepackage[unicode,bookmarks,bookmarksopen,bookmarksopenlevel=2,colorlinks,linkcolor=blue,citecolor=green]{hyperref}
+
+\usepackage{amsmath,eucal,amssymb}
+\usepackage{mathrsfs,graphicx,texdraw}
+\usepackage{fancyhdr,framed}
+\usepackage{tikz, tikz-3dplot}
+\usepackage{tkz-euclide}
+\usetikzlibrary{decorations.fractals}
+\usetikzlibrary{decorations.footprints}
+
+\usepackage{palatino}
+\usepackage[utf8]{inputenc}
+\usepackage[latin1]{inputenc}
+
+\usepackage[T1]{fontenc}
+%\usepackage[dvips]{graphicx}
+%\usepackage{times}
+
+\definecolor{mygreen}{HTML}{622567} %%% Purple
+\definecolor{Gray}{HTML}{333333} %%% Gray
+
+\definecolor{myred}{HTML}{D55C19} %%%EssexOrange
+\definecolor{myblue}{HTML}{007A87} %%%Seagrass
+\definecolor{Mint}{HTML}{35C4B5} %%% Mint
+
+
+\def\grole{\mathrel{\mathchoice {\vcenter{\offinterlineskip\halign{\hfil
+$\displaystyle##$\hfil\cr>\cr\noalign{\vskip-1.5pt}<\cr}}}
+{\vcenter{\offinterlineskip\halign{\hfil$\textstyle##$\hfil\cr
+>\cr\noalign{\vskip-1.5pt}<\cr}}}
+{\vcenter{\offinterlineskip\halign{\hfil$\scriptstyle##$\hfil\cr
+>\cr\noalign{\vskip-1pt}<\cr}}}
+{\vcenter{\offinterlineskip\halign{\hfil$\scriptscriptstyle##$\hfil\cr
+>\cr\noalign{\vskip-0.5pt}<\cr}}}}}
+
+\newenvironment{rcases}
+  {\left.\begin{aligned}}
+  {\end{aligned}\right\rbrace}
+
+\newenvironment{lcases}
+  {\left\lbrace\begin{aligned}}
+  {\end{aligned}\right.}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+
+\newenvironment{proof}[1][Proof]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{solution}[1][Solution]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+
+\newcommand{\qed}{\nobreak \ifvmode \relax \else
+      \ifdim\lastskip<1.5em \hskip-\lastskip
+      \hskip1.5em plus0em minus0.5em \fi \nobreak
+      \vrule height0.75em width0.5em depth0.25em\fi}
+
+\numberwithin{equation}{section}
+\def\Ad{{\mbox{Ad}}}
+\def\im{{\mbox{Im}}}
+\def\Re{{\mbox{Re}\;}}
+\def\ad{\mathrm{ad\,}}
+\def\openone{\leavevmode\hbox{\small1\kern-3.3pt\normalsize1}}
+\def\Res{\mathop{\mbox{Res}\,}\limits}
+\def\biglb{\big[\hspace*{-.7mm}\big[}
+\def\bigrb{\big]\hspace*{-.7mm}\big]}
+
+
+\def\bigrbt{\mathop{\bigrb }\limits_{\widetilde{\;}}}
+\def\biggrbt{\mathop{\biggrb }\limits_{\widetilde{\;}}}
+\def\Bigrbt{\mathop{\Bigrb }\limits_{\widetilde{\;}}}
+\def\Biggrbt{\mathop{\Biggrb }\limits_{\widetilde{\;}}}
+
+\def\bPhi{\mathbf{\Phi}}
+\def\bM{\mathbf{M}}
+\def\bm{\mathbf{m}}
+\def\bbbc{{\Bbb C}}
+\def\bbbr{{\Bbb R}}
+\def\bbbz{{\Bbb Z}}
+\def\bbbs{{\Bbb S}}
+\def\diag{\mbox{diag}\,}
+\def\tr{\mbox{tr}\,}
+
+\textwidth=17cm   \textheight=24.5cm \voffset=-2cm
+
+\evensidemargin=-0.5cm \oddsidemargin=-0.5cm
+
+ \renewcommand{\baselinestretch}{1.5}
+
+%%%%%%%%fancy header%%%%%%%%%%%%%%%%%
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{calc}
+\newlength{\pageoffset}
+\setlength{\pageoffset}{0cm}% use whatever you like
+\fancyheadoffset[LE,RO]{\pageoffset}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\fancyhf{}
+\fancyhead[LE]{\makebox[\pageoffset][l]{\thepage}\hfill\leftmark}
+\fancyhead[RO]{\rightmark\hfill\makebox[\pageoffset][r]{\thepage}}
+\fancypagestyle{plain}{%
+    \fancyhead{} % get rid of headers
+    \renewcommand{\headrulewidth}{0pt} % and the line
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\arraycolsep=2pt
+
+%%%%Fancy Chapter%%%
+
+%\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{microtype}
+\usepackage{lipsum}
+\usepackage[utf8]{inputenc}
+
+%\definecolor{myblue}{RGB}{0,82,155}
+
+\titleformat{\chapter}[display]
+  {\normalfont\bfseries\color{myred}}
+  {\filleft\hspace*{-60pt}%
+    \rotatebox[origin=c]{90}{%
+      \normalfont\color{black}\Large%
+        \textls[180]{\textsc{\chaptertitlename}}%
+    }\hspace{10pt}%
+    {\setlength\fboxsep{0pt}%
+    \colorbox{myred}{\parbox[c][3cm][c]{2.5cm}{%
+      \centering\color{white}\fontsize{80}{90}\selectfont\thechapter}%
+    }}%
+  }
+  {10pt}
+  {\titlerule[2.5pt]\vskip3pt\titlerule\vskip4pt\LARGE\sffamily}
+
+% hyperref should be loaded after all other packages
+% aliascnt is needed to get \autoref (from hyperref) to work correctly with custom amsthm theorems
+\usepackage{aliascnt}
+\usepackage[colorlinks,linkcolor=myblue,citecolor=mygreen]{hyperref}
+
+\begin{document}
+
+\thispagestyle{empty}
+
+\begin{minipage}{0.2\textwidth}
+\centerline{\includegraphics[width=.4\textwidth]{essex} }
+\end{minipage}
+\begin{minipage}{0.8\textwidth}
+
+$ \qquad \qquad \qquad ${\LARGE \bf \sl University of Essex}
+
+{\LARGE \bf Department of Mathematical Sciences}
+
+\end{minipage}
+
+\begin{center}
+
+\noindent\textcolor{myred}{\rule{\linewidth}{4.8pt}}
+
+\vspace{1cm}
+
+{\LARGE \sc  MA981: Dissertation}
+
+\vspace{1.5cm}
+
+{\Huge{\color{myblue}  A Data-Driven Study of Football Player Performance and Market Value}}
+
+\vspace{1.5cm}
+
+{\Large \bf Vedanth Udhay Sawant}
+
+{\Large \bf 2311772}
+
+\vspace{7.0cm}
+
+\vspace{1.5cm}
+
+{\Large {Supervisor: You, Na} }
+
+\vspace{.25cm}
+
+\noindent\textcolor{myred}{\rule{\linewidth}{4.8pt}}
+
+\vspace{1cm}
+{\Large \today }\\[4pt]
+{\Large Colchester}
+\end{center}
+
+\newpage
+\begin{center}
+  {\LARGE \sc  \color{orange}ABSTRACT}
+\end{center}
+
+The use of data analytics in the sports sector has increased recently for a competitive advantage in improving the development of players, acquiring players and enhancing game strategies. This dissertation explores the use of machine-learning techniques to predict football player consistency and their market value. We plan to create a strong predictive model for assessing player performance and market value by using a wide range of player statistics collected from different seasons and reliable databases.
+
+In the initial stage, we focus on predicting football player consistency using classification algorithms such as decision tree classifier, random forest classifier and gradient boosting classifier. Important performance measures such as goals, assists, matches played, shots, and other relevant features are used to train and validate the models. The effectiveness of the models in identifying consistent players is shown through the evaluation of accuracy, precision, recall, and F1 score.
+
+In the second phase, we predicted the player’s market value using regression algorithms which include linear regression, XGBoost Regressor and Ridge Regression. The models incorporate various factors such as current performance metrics, age, position, contract details and consistency label (Consistent or Inconsistent). The metrics used for evaluation, such as Root Mean Squared Error (RMSE) and R-squared score, show how accurately the models predict the market value.
+
+Our results show that we have significant predictive accuracy in both player consistency and market value estimation, giving football clubs important information to make smart decisions on player acquisitions and strategic plans. This study contributes to the growing field of sports analytics by offering an integrated approach to player performance and valuation prediction. The developed models can act as practical instruments for clubs to improve their decision-making procedures, maximise player collections, and maintain competitive advantages in the ever-changing world of professional football.
+
+\tableofcontents
+\listoffigures
+\listoftables
+
+\chapter{Introduction}\label{ch:1}
+
+\section{Background and Context}\label{sec:1.1}
+
+Football is not only a widely popular sport worldwide but also a massive industry worth billions of dollars, with player performance and market value being key factors influencing the strategies of clubs, agents, and team success. With the increasing stakes in the football industry, there is a growing need for precise and informative tools to assess player performance and predict market value. This presents a unique opportunity to utilise data analysis in assessing both the market value and performance of a football player through player statistics, match data, and transfer records \cite{lopez2018}. Historically, player market value and performance evaluation have mostly relied on expert judgment and basic statistical measures. These conventional approaches, though important, usually don't have the thoroughness and accuracy needed to consider all the factors affecting a player's value in the market, which can result in inaccurate assessments of player value \cite{williams2021}.
+
+However, the increase and advancement in machine learning have opened up fresh possibilities for more precise and data-driven approaches to predicting market value. Machine learning provides a hopeful option to traditional evaluation methods by being able to analyse big datasets and discover complex patterns. Through the utilisation of extensive historical data, machine learning algorithms can identify key performance indicators that have a strong correlation with market value, resulting in more dependable and unbiased predictions \cite{martinezb2020}. Using advanced analytics enables clubs to move past simple performance statistics and examine more detailed elements of player performance, such as reliability, adaptability, and influence in different game scenarios. This deeper understanding is crucial for making strategic decisions for the club's long-term objectives, whether that involves building a championship-winning team or nurturing young talents for future achievements.
+
+Measuring a player's consistent performance and linking it to their market value is still a difficult task despite its importance. Consistency sets exceptional players apart from average ones by showcasing their ability to consistently deliver top-notch performances despite external variables like game conditions or opponent skills. It is essential to make precise predictions of a football player's market value using their performance data to improve transfer choices and stay ahead in the competition \cite{harris2019}. This is where machine learning models can be pivotal by incorporating various factors like age, injury history and playing style during the valuation process. Clubs and scouts are especially keen on players who can consistently perform at a high level not just in individual games, but also across several seasons. Even with abundant data on player performance, it is still difficult to accurately forecast market value using consistency in performance This difficulty arises from the complex and often non-linear relationships between various performance metrics and market value. Incorporating machine learning into this system has the capability to reveal patterns and connections that traditional analysis techniques could overlook, enhancing market value prediction accuracy with a focus on performance consistency metrics \cite{jones2020}. 
+
+This dissertation seeks to explore how machine learning can be utilised to predict the market value of football players by focusing on their performance consistency across seasons. By doing this, it seeks to add to the expanding field of sports analytics and provide useful resources for football teams and analysts to improve decision-making in player transfers.
+
+\section{Problem Statement}\label{sec:1.2}
+
+The central problem addressed by this dissertation is the challenge of predicting the market value of football players based on their consistent performance. In the dynamic world of football, a player's market value is frequently dependent on their capacity to consistently produce top-notch performances \cite{johnson2018}. The traditional methods often concentrate on recent performance, possibly overlooking the overall view of a player's long-term reliability. In particular, the relationship between consistent performance and market value is not well understood or quantified. Consistency in performance is a complex idea that includes technical skills, match contributions, physical fitness, adaptability, and psychological resilience \cite{garcia2022}. 
+
+This dissertation aims to close this gap by developing a machine learning algorithm that considers different factors of player reliability to better forecast market value. The suggested model aims to distinguish between consistent players and less reliable ones by utilising various performance metrics from multiple seasons. The aim is to develop a predictive model that can predict a player's market value accurately by considering their reliability, offering a more comprehensive analysis compared to conventional approaches \cite{taylor2019}.
+
+In the extremely competitive football industry, making well-informed choices on player acquisitions and valuations is essential for maintaining a strategic advantage. The model's goal is to predict player consistency and their market value \cite{martinezj2020}. The main focus of the research is on two main goals: first, to identify and quantify the key performance indicators that reflect a player’s consistency; and second, to develop a machine learning model that can make accurate predictions of market value using these metrics.
+
+\section{Research Objectives}\label{sec:1.3}
+
+The study has the following key objectives:
+
+\begin{itemize}
+    \item To identify and analyse the key performance metrics that define consistency in a football player's performance over multiple seasons.
+    \item To develop a machine learning model that uses these consistency metrics to predict the player's market value.
+    \item To evaluate the effectiveness of different machine learning algorithms in predicting market value and consistency of players, and comparing their performance using appropriate metrics.
+    \item To analyse the implications of consistency on market value and provide insights for football clubs and agents.
+\end{itemize}
+
+\section{Significance of the Study}\label{sec:1.4}
+
+The importance of this research is found in its potential applications in the football sector. First, it offers a fresh perspective on the relationship between player consistency and market value, providing teams and agents with a fairer basis for contract talks. Traditionally, transfer negotiations have been influenced by subjective opinions and short-term performance \cite{jones2018}, which may lead to overvaluation or undervaluation of players. By introducing a data-driven approach that objectively evaluates consistency over time, this study offers a more reliable basis for assessing a player's true market value, thereby enhancing the transparency and fairness of transfer dealings \cite{brown2019} .
+
+Additionally, it contributes to the sports analytics industry by using advanced machine learning methods to address real-world problems. The incorporation of machine learning in sports analysis is a growing area, and this study adds to its progress by using machine-learning algorithms to predict player consistency and market value \cite{lopez2022}. This method not only improves the technical abilities in sports analytics but also showcases the usefulness of these techniques in real-world scenarios, possibly establishing a model for future research in the field \cite{martinez2020}.
+
+Ultimately, the findings from this study could lead to better decision-making in the football transfer industry, allowing clubs to build strong teams that are also financially secure. Clubs can pinpoint players with both talent and consistency across several seasons to ensure long-lasting returns on investments \cite{taylor2018}.
+
+\chapter{Literature Review}\label{ch:2}
+\section{Player Performance and Market Value Prediction}\label{sec:2.1}
+Historically, player market value has been based on subjective opinions from scouts, managers, and experts. Traditional valuation methods, while still useful, often miss the complexities of modern football, where a player's consistency, adaptability, and performance metrics need to be considered over several seasons. Researchers in \cite{muller2012} explored the importance of considering both subjective judgment and objective performance data when estimating player market value. They proposed models that integrated game statistics with market forces, offering a more holistic view of player valuation.
+
+Several studies have also highlighted the importance of considering performance consistency as a key metric in player valuation. Researchers like \cite{kalman2016} examined how consistent performance, particularly across different seasons, can better predict a player’s long-term value. Their findings emphasized the need for data-driven approaches to incorporate both short-term and long-term player performance data to estimate market value accurately. This serves as a foundation for utilizing machine learning techniques to model and predict player consistency and market value, which is explored in the following sections.
+
+\section{Machine Learning in Predicting Player Consistency and Market Value}\label{sec:2.2}
+
+Machine learning has significantly improved the precision and scalability of performance and market value predictions. Similar to its applications in other sectors, such as real estate and retail \cite{montgomeryj2012}, machine learning offers a systematic approach to analyzing large datasets and identifying patterns that may be overlooked by traditional methods.
+
+Linear regression continues to be a core method for forecasting continuous variables, like market value. It has been applied in numerous studies on price and value prediction \cite{montgomeryj2012}. However, while linear regression provides a simple model for understanding the relationship between player attributes (goals, assists, appearances) and market value, its assumption of linearity limits its effectiveness for capturing the complex relationships inherent in player performance data.
+
+Decision trees and random forests, popular in various sectors for their ability to handle non-linear relationships, have been widely adopted in sports analytics for predicting player performance and value \cite{breiman2001} \cite{friedman2001}. Decision trees work by splitting the data into smaller subsets based on feature values, making them effective for classification tasks such as determining player consistency. Random forests, utilising multiple decision trees, enhance predictive accuracy by reducing overfitting, making them well-suited for the complex, high-dimensional attributes of football player data.
+
+Gradient boosting machines (GBMs), and particularly their implementation in XGBoost, have gained attention for their exceptional accuracy in prediction tasks \cite{chen2016}. GBMs iteratively build models by correcting the errors of previous models, making them ideal for predicting player market value based on multi-season data. Their ability to handle a variety of data types and complex relationships makes them particularly useful for sports analytics, where performance metrics may interact in non-obvious ways.
+
+\section{Applications in Football Market Value and Performance Consistency}\label{sec:2.3}
+
+In the context of football, the challenge of predicting player market value and consistency lies in the interaction of various factors, including performance metrics, player position, age, and external influences like team dynamics and injuries. Multiple studies have applied machine learning models to this sector, examining which features and algorithms provide the best results.
+
+Studies by \cite{smith2018} compared different machine learning models, such as linear regression, decision trees, and random forests, for predicting player performance consistency. They concluded that ensemble methods like random forests and gradient boosting outperform simpler models, particularly when capturing the non-linear relationships between performance metrics and player value.
+
+Research by \cite{zhangC2020} focused on the importance of feature selection in predicting player market value. Their research highlighted the importance of taking into account both fixed characteristics (like age, position, and club) and dynamic factors (such as present season performance and team tactics). By adding various player metrics like goals, assists, and defensive actions, the predictive accuracy of machine learning models was greatly enhanced.
+
+Real-life applications of machine learning for football player valuation have been explored in studies like that of \cite{kumar2021}. They developed a dynamic player valuation model for a top football club, incorporating real-time performance data to adjust market value predictions continuously. Their model resulted in more accurate valuations and better-informed player acquisition decisions. Similarly, \cite{brown2020} integrated external factors such as player injuries and team changes, enhancing the model's ability to predict fluctuations in market value throughout a season .
+
+\chapter{Methodology}\label{ch:3}
+
+The Methodology chapter explains the systematic approach employed in this study to achieve the goals of predicting football player consistency and market value using advanced machine learning methods. A well-constructed research plan was essential to ensure reliable and precise outcomes due to the complexity of player performance and market value data. This section covers pre-processing methods, utilising machine learning models, and evaluating the model's performance with metrics.
+
+The aim of this dissertation is to develop a model that can classify football players as either consistent or inconsistent and predict their market value with accuracy. This section details the necessary steps for preparing data, such as data pre-processing, which are vital in converting raw data into a suitable structure for machine learning algorithms. Following the pre-processing stage, discuss the selection and implementation of machine learning models. Different algorithms were examined, including classification models to identify consistent players and regression models for forecasting their market value.
+
+
+\section{Data Pre-processing}\label{sec:3.1}
+
+Data pre-processing is an essential and fundamental step in any machine learning project. It transforms unprocessed data into a clean and systematic format, guaranteeing the data is prepared for analysis and modelling. Raw data frequently contains inconsistencies like missing values, outliers, or irrelevant features. If not addressed, these issues can lead to suboptimal model performance. Pre-processing tackles these problems, improves the dataset's quality, and boosts the efficiency and accuracy of machine learning algorithms.
+
+In this dissertation, pre-processing refers to a series of activities aimed at getting a complete dataset ready for training and evaluating machine learning models, using data from different player statistics. This procedure is crucial as football player information, including their performance metrics and characteristics, frequently differs in magnitude, comprehensiveness, and organization. Applying the appropriate pre-processing methods can help guarantee that models can effectively learn from data without being biased by irrelevant noise or affected by data inconsistencies \cite{kotsiantis2006}. In this study, the following pre-processing techniques were implemented to ensure that the dataset was clean, well-prepared, and ready for analysis.
+
+\subsection{Handling Missing Values}\label{sec:3.1.1}
+
+Before handling missing data, it is essential to first identify the extent and pattern of missing values in the dataset. This was done by using the \textbf{isnull()} and \textbf{sum()} functions in Python, which provide an overview of how many missing values exist in each column. By visualizing this using libraries such as \textbf{seaborn} or \textbf{matplotlib}, the prevalence of missing data across different features was made clear as shown in \textbf{Figure 3.1}. For many numerical features, missing values were filled using strategies such as mean or median imputation \cite{little2019} \cite{kumar2020}. For features with normally distributed data, the mean was used to fill in missing values. In cases when outliers could have a significant impact on the mean, the median was chosen as a more reliable measure \cite{han2011}. For example, if a player had missing values for the number of goals or assists, these will be substituted with the average value of all players or within the same position to maintain accuracy in the data.  If a column is detected as categorical, the function replaces any \textbf{NaN} values with the string \textbf{'Unknown'}.
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=.75\textwidth]{MissingValues.png}
+    \caption{Top 10 Attributes with Missing Values (Descending Order)}
+    \label{fig:MissingValues}
+\end{figure}
+
+\subsection{Feature Scaling}\label{sec:3.1.2}
+
+Feature scaling is an essential pre-processing step, particularly when the dataset has features of different scales or varying magnitudes. In machine learning, algorithms such as Ridge Regression, Gradient Boosting, and XGBoost can be impacted by the scale of the input variables \cite{singh2018}. Features that have larger scales can dominate the learning process, leading to a bias towards those features in models. Hence, it is crucial to standardise or normalise features so that they contribute equally to the model's learning process.
+
+In this study, feature scaling was applied to ensure that variables with different ranges (such as player market values, which are in millions, and statistics like "Crosses" or "Interceptions") are brought to a uniform scale. The following two methods were used to scale the features, depending on the type of model being used and the distribution of the features.
+
+\subsubsection{MinMax Scaling}
+
+MinMax Scaling was used to normalise the features by bringing them into a specified range, typically between 0 and 1 \cite{james2013}. This scaling technique maintains the data points' relationships while ensuring all features are within a consistent range. 
+
+The formula for \textbf{MinMax Scaling} is \cite{zhang2020}:
+\[X_{\text{scaled}} = \frac{X - X_{\text{min}}}{X_{\text{max}} - X_{\text{min}}}\]
+Where:
+\begin{itemize}
+    \item \textbf{$X$}: This is the original value of the feature for a specific player in the dataset. For instance, if you are normalising "Aerial Duel Won (17/18)" for a player, $X$ would be the number of aerial duels won by that player.
+    \item \textbf{$X_{\text{min}}$} and \textbf{$X_{\text{max}}$}: This is the minimum and maximum value of the feature across all players in the dataset. For example, if you are normalising "Aerial Duel Won (17/18)," $X_{\text{min}}$ would be the minimum number of aerial duels won by any player and $X_{\text{max}}$ would be the highest number of aerial duels won by any player respectively.
+\end{itemize}
+
+\subsubsection{Standard Scaling}
+
+Standard Scaling, also known as Z-score normalisation, was used for features where the distribution is Gaussian (normal) \cite{jain2017}. Standard scaling transforms the features so that they have a mean of zero and a standard deviation of one. This ensures that features are centered around zero, and differences in scale are reduced.
+
+The formula for \textbf{Standard Scaling} is \cite{mehta2020}:
+\[X_{\text{scaled}} = \frac{X - \mu}{\sigma}\]
+Where:
+\begin{itemize}
+    \item \textbf{$\mu$} is the mean (average) value of the feature across all players in the dataset.
+    \item \textbf{$\sigma$} is the standard deviation of the feature across all players in the dataset.
+\end{itemize}
+
+\subsection{Categorical Encoding}\label{sec:3.1.3}
+
+Categorical encoding is vital during data pre-processing, especially for non-numerical categorical variables \cite{hasan2019}. In this research, various columns like "Club," "Position," and "Nation," were categorical and converting these attributes into numerical forms was crucial for machine learning algorithms. These models generally require numerical input and categorical data must be encoded to allow the models to interpret and learn from them effectively.
+
+\subsubsection{One-Hot Encoding}
+
+In the pre-processing phase of this study, One-Hot Encoding was the primary method used to handle categorical data. One-Hot Encoding converts each unique category within a feature into a new binary column. Each column represents whether a particular category is present (1) or not (0) for a given data point \cite{ng2021}. This method avoids any assumption of ordinal relationships between the categories, ensuring that the model treats each category as independent.
+
+Example: For the "Position" feature, which might contain categories such as "Attack," "Midfield," and "Defense," One-Hot Encoding would create three new binary columns: Position\_Attack, Position\_Midfield, Position\_Defense.
+
+If a player is an attacker, the "Position\_Attack" column would be set to 1, and the other two would be set to 0. This binary representation allows machine learning algorithms to understand categorical features in a form they can process. In the Python code provided for this dissertation, One-Hot Encoding was applied using the OneHotEncoder class from the sklearn.preprocessing module.
+
+\subsection{Feature Engineering}\label{sec:3.1.4}
+
+Feature engineering is crucial in enhancing machine learning model performance \cite{premanand2024} as it involves creating or modifying existing ones to better capture relationships within the data. Polynomial Features was a key method used to help the Linear Regression model capture nonlinear relationships between player statistics and other features. By introducing polynomial terms, the model became capable of learning more intricate patterns in the data.
+
+Polynomial Features involve creating new features by raising the original features to a power \cite{dong2021} (e.g., squaring or cubing them) and creating interaction terms between different features. This allows the model to capture nonlinear relationships that may exist between the input features and the target variable, which standard linear regression might miss.
+
+For instance, consider two variables, "Age" and "Goals." If there is a nonlinear relationship between a player's age and their goal-scoring performance, simply using a linear term might not be sufficient. Using Polynomial Features with degree 2 will create additional terms like: Age\(^2\) (squared term of Age), Goals\(^2\) (squared term of Goals), Age \(*\) Goals (interaction term between Age and Goals), which allow the model to understand more complex interactions between these variables. In our code, polynomial features were created using the PolynomialFeatures class from sklearn.preprocessing.
+
+\section{Analytical Techniques}\label{sec:3.2}
+
+\subsection{Classification Models}
+
+Classification algorithms are essential machine learning algorithms that are used to predict discrete outcomes or class labels based on input data. Classification models were utilised in the study to predict football player performance based on a dataset that included player statistics, positions, clubs, and other relevant attributes. The primary goal of classification is to categorize each player by labelling them as either "consistent" or "non-consistent" based on the features provided in the dataset \cite{alpaydin2020}. Classification tasks involve supervised learning, where the model is trained to map input features with the appropriate class labels by using labelled training data. The process of learning includes identifying patterns in the data during training and using them to efficiently classify new data points.
+
+In this research, we used three robust classification models: Decision Tree Classifier, Random Forest Classifier, and Gradient Boosting Classifier. The selection of these models was based on their capacity to manage high-dimensional data and their success in predicting outcomes related to football player performance.
+
+
+\subsubsection{Decision Tree Classifier}
+
+The Decision Tree Classifier is a simple yet powerful model used in machine learning for classification purposes. It builds a model in the shape of a tree structure,  with internal nodes representing decisions on features, branches showing outcomes of decisions, and leaf nodes showing class labels or outputs. The classifier gives a class label to a data point by moving through the tree from the root to the leaf \cite{rokach2005}, based on the conditions satisfied at each node. The decision tree algorithm breaks down the dataset into smaller subsets by choosing the most useful feature \cite{krishnan2021} at each split in a recurring way until all data points at a node belong to the same class (pure node) or maximum depth is reached. At each node in the tree, the algorithm chooses the best feature to split the data by using a splitting criterion such as Entropy (Information Gain).
+\begin{itemize}
+    \item \textbf{Entropy (Information Gain)} measures how much uncertainty in the data is reduced after splitting \cite{neha2024} based on a feature. A higher Information Gain is preferred for splitting.
+    The formula for \textbf{Entropy} is \cite{shannon1948} :
+    \[
+    Entropy = - \sum_{i=1}^{C} p_i \log_2(p_i)
+    \]
+    Where:
+    \begin{itemize}
+        \item \( p_i \) is the probability of a particular class (or label) \cite{quinlan1986}. For instance, if we take the "Consistency\_Label" column with values "Consistent" and "Inconsistent," \( p_i \) would be the probability of a player being "Consistent" or "Inconsistent" within a subset of the data.
+        \item \( C \) is the total number of classes in the dataset. For instance, if we're categorising players based on certain attributes, \( C \) could refer to the number of categories, like the "Consistency\_Label" column, where players are labelled as "Consistent" or "Inconsistent."
+    \end{itemize}
+
+    To determine the best feature for splitting, we calculate the \textbf{Information Gain} for each feature \cite{pranto2020} :
+    \[
+    Information\ Gain = Entropy(parent) - \sum_{i=1}^{k} \left( \frac{N_i}{N} \times Entropy(child_i) \right)
+    \]
+    Where:
+    \begin{itemize}
+        \item \textbf{$N_i$}: This is the number of samples (players) in the $i^{\text{th}}$ child node (group) \cite{quinlan1986}. For example, if the dataset is split by "Club," $N_i$ would represent the number of players in a specific club.
+        \item \( N \) is the total number of samples (players) in the parent node.
+        \item \( k \) is the number of child nodes. For example, if the dataset split based on the feature "Club," $k$ would be the number of clubs (different categories) in the dataset.
+        \item \( Entropy(child_i) \) is the entropy of the child node \( i \). After splitting based on a feature, each subset (child node) will have its own entropy. For example, after splitting by "Club," we might calculate the entropy of players' "Consistency\_Label" (e.g., "Consistent" vs. "Inconsistent") within each club.
+    \end{itemize}
+\end{itemize}
+\subsubsection{Random Forest Classifier}
+
+The Random Forest Classifier is a machine-learning model that enhances accuracy and flexibility by using multiple decision trees in an ensemble learning algorithm \cite{zhou2012}. It is commonly seen as a robust and flexible machine-learning model that is appropriate for classification and regression tasks. Random Forest operates by creating a collection (or "forest") of decision trees, with each tree being trained on a random portion of the training data \cite{liaw2002}. The final prediction is made by aggregating the predictions of every single decision tree in the forest, reducing the possibility of overfitting. The Random Forest algorithm can be formalised as follows:
+
+For an input sample \( x \), each decision tree in the forest makes an independent prediction \( T_i(x) \), where \( T_i \) is the \( i \)-th tree. The Random Forest takes the majority vote across all trees to make the final classification \cite{sruthi2024} \cite{zhou2012}:
+\[Prediction_{RF}(x) = Majority\ Vote\{T_1(x), T_2(x), \dots, T_N(x)\}\]
+Where:
+\begin{itemize}
+    \item \textbf{$T_1(x), T_2(x), \dots, T_N(x)$}: These are the predictions made by each of the individual decision trees in the Random Forest. For example, each decision tree might use different subsets of features, such as "Aerial Duel Won" or "Penalties Conceded," to make its prediction for a player.
+    \begin{itemize}
+        \item For example, $T_1(x)$ might classify a player as "Consistent," while $T_2(x)$ might classify the same player as "Inconsistent," and so on. Each decision tree is trained on a random subset of the data and features, which ensures a diverse set of predictions.
+    \end{itemize}
+    \item \textbf{Majority Vote}: This is the mechanism by which the Random Forest makes its final decision. After collecting the predictions from all $N$ decision trees, the Random Forest takes the majority vote to determine the final predicted label. 
+    \begin{itemize}
+        \item For example, if 7 out of 10 trees classify a player as "Consistent" and 3 trees classify the player as "Inconsistent," the Random Forest will predict "Consistent" for that player.
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{Gradient Boosting Classifier}
+
+The Gradient Boosting Classifier is a useful machine learning algorithm used for classification tasks.  It is a part of ensemble learning techniques, combining multiple weak learners (usually decision trees) to create a more powerful predictive model. In contrast to Random Forest, Gradient Boosting constructs trees one by one, where each tree aims to fix the errors made by the previous ones \cite{friedman2001}. Gradient Boosting builds the model gradually by enhancing a loss function at each iteration. The primary idea involves adjusting a model by considering the residual errors from the previous model, which are the differences between the actual values and the predicted values \cite{chen2016}. Each model, typically a decision tree, is trained to predict the errors of the previous model's predictions. The process repeats until the model's performance stabilizes or a set number of trees is reached.
+
+The model update rule in Gradient Boosting is given by \cite{guest2024}:
+\[F_m(x) = F_{m-1}(x) + \alpha h_m(x)\]
+Where:
+\begin{itemize}
+    \item \( F_m(x) \) is the current model after \( m \) iterations,
+    \item \( F_{m-1}(x) \) is the model after \( m-1 \) iterations,
+    \item \( h_m(x) \) is the weak learner (e.g., decision tree) trained on the residuals,
+    \item \( \alpha \) is the learning rate, a small constant that controls the contribution of each weak learner.
+\end{itemize}
+In classification tasks, the loss function typically used is the \textbf{log-loss} for binary classification \cite{guest2024}:
+\[L(y, \hat{y}) = - \left( y \log(\hat{y}) + (1 - y) \log(1 - \hat{y}) \right)\]
+Where:
+\begin{itemize}
+    \item \( y \) is the true label,
+    \item \( \hat{y} \) is the predicted probability for class 1.
+\end{itemize}
+
+The model iteratively minimizes this loss function to improve accuracy.
+
+\subsection{Regression Models}
+
+Regression models are a fundamental aspect of machine learning and statistics, used to predict continuous numerical results based on input features \cite{hastie2009}. In contrast to classification where data points are given discrete labels, regression focuses on understanding the connection between input features and a continuous target variable. This form of analysis can be used in many different areas, such as finance and healthcare, and was applied in this research to sports analytics in order to predict player market value, and other continuous results linked to football players. In regression analysis, the connection between the independent variables and the dependent variable may be linear or nonlinear, with various regression models chosen based on the level of complexity in the relationship. The main goal is to develop a model that reduces the difference between the predicted values and the actual values, allowing for precise predictions on unseen and new data. 
+
+In this study, three regression models were used to predict football player market value: Linear Regression, XGBoost Regressor, and Ridge Regression. Linear Regression was suitable for basic linear relationships, while XGBoost Regressor was more appropriate for intricate non-linear feature interactions. Ridge Regression was used in cases of multicollinearity among predictors to enhance prediction accuracy.
+
+\subsubsection{Multiple Regression}
+
+Linear Regression, a basic model, is frequently applied in machine learning and statistics. It is used to indicate the relationship between a dependent variable (target) and one or more independent variables (predictors) \cite{rencher2008} \cite{james2013}. It assumes that there is a direct correlation between the target and predictors, with changes in predictors resulting in corresponding changes in the target. The goal of Linear Regression is to identify the optimal straight line (or hyperplane in higher dimensions) that minimizes the difference between the predicted and observed values of the dependent variable. Linear Regression gives an understanding on how variations in predictors impact the target variable by calculating the coefficients of a predictor.
+
+Multiple Regression builds on simple linear regression by including several independent variables \cite{chatterjee2015} \cite{montgomery2012} to predict a dependent variable. It allows us to examine at the same time how different features affect the outcome, providing a better understanding of the relationship with the target variable. In this study, Multiple Regression was used to predict continuous outcomes related to football players, such as market value, by examining player statistics such as goals, assists, age, and position. It can effectively handle big data sets and is often used as an initial model before moving on to more complex models.
+
+The general formula for \textbf{multiple regression}, where more than one predictor is used, the formula becomes \cite{hayes2024}:
+\[y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \cdots + \beta_n x_n + \epsilon\]
+Where:
+\begin{itemize}
+    \item \textbf{$y$}: This is the \textbf{dependent variable} or the target variable. For Example, $y$ could represent the market value of a player based on features such as age, club, and performance stats.
+    \item \textbf{$\beta_0$}: This is the \textbf{intercept} of the regression model. It represents the value of $y$ when all the independent variables ($x_1, x_2, \dots, x_n$) are zero.
+    \item \textbf{$\beta_1, \beta_2, \dots, \beta_n$}: These are the \textbf{coefficients} or weights assigned to the independent variables. Each $\beta_i$ represents the amount by which $y$ changes when the corresponding independent variable $x_i$ changes by one unit, assuming all other variables are held constant.the coefficients corresponding to each predictor \( x_1, x_2, \dots, x_n \).
+    \item \textbf{$x_1, x_2, \dots, x_n$}: These are the \textbf{independent variables} (also known as predictors or features). These are the inputs used to predict $y$. In your dataset, these could be various features like "Age," "Club," "Aerial Duel Won," "Crosses," and other performance metrics.
+    \item \textbf{$\epsilon$}: This is the \textbf{error term} or residual. It represents the difference between the actual value of $y$ (in the dataset) and the predicted value from the model. The goal of regression is to minimize this error.
+\end{itemize}
+
+\subsubsection{XGBoost Regressor}
+
+XGBoost(eXtreme Gradient Boosting) is a very efficient and scalable version of the gradient boosting technique \cite{zhang2018}. Because of its effectiveness, precision, and adaptability, it has become a preferred algorithm for regression and classification tasks. XGBoost is an ensemble method that builds multiple weak learners (decision trees) in a sequential manner, with each tree adjusting for the mistakes of the ones before it. The final prediction is calculated by adding the predictions made by each tree \cite{li2019}. XGBoost employs gradient boosting, in which every additional tree is trained to reduce the residual errors (the gap between the predicted and real values) from the previous trees. This procedure is carried out until a certain condition is reached (such as hitting a set limit on the number of trees or achieving a minimal error improvement).
+
+The XGBoost regressor minimizes an objective function that consists of two parts: the loss function and a regularization term \cite{chen2016} \cite{hastie2009}. At each iteration, XGBoost tries to minimize the following objective function:
+\[Obj(t) = \sum_{i=1}^{n} L(y_i, \hat{y}_i^{(t)}) + \sum_{k=1}^{T} \Omega(f_k)\]
+Where:
+\begin{itemize}
+    \item \( L(y_i, \hat{y}_i^{(t)}) \) is the loss function (e.g., mean squared error) that measures the difference between the actual target \( y_i \) and the predicted value \( \hat{y}_i^{(t)} \) at iteration \( t \),
+    \item \( \Omega(f_k) \) is the regularization term for tree \( f_k \), controlling the complexity of the model to prevent overfitting,
+    \item \( n \) is the number of observations, and
+    \item \( T \) is the number of trees.
+\end{itemize}
+The loss function \( L(y, \hat{y}) \) for regression tasks is typically the \textbf{mean squared error (MSE)} \cite{albert2021}:
+\[L(y, \hat{y}) = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2\]
+The regularization term \( \Omega(f_k) \) is given by \cite{chen2016}:
+\[\Omega(f_k) = \gamma T + \frac{1}{2} \lambda \sum_{j=1}^{d} w_j^2\]
+Where:
+\begin{itemize}
+    \item \( T \) is the number of leaves in the tree,
+    \item \( \lambda \) controls the regularization of leaf weights \( w_j \),
+    \item \( \gamma \) is the penalty for adding additional leaves to the tree.
+\end{itemize}
+
+\subsubsection{Ridge Regression}
+Ridge Regression is a type of linear regression that adds regularization to improve model performance, especially when multicollinearity or overfitting is present \cite{hoerl1970}. In contrast to OLS regression, Ridge Regression adds a penalty based on the L2 norm of regression coefficients, in addition to minimizing the residual sum of squares (RSS) between predicted and actual target values \cite{hastie2009}.This penalty reduces the coefficients, preventing and reducing their magnitude from growing too large. Therefore, Ridge Regression creates a model that is more robust and has better generalization to new and unseen data.
+
+Ridge Regression is especially beneficial when dealing with datasets that have many features or features that are highly correlated \cite{hoerl1970}. In such instances, OLS regression may produce unstable or excessively large coefficients, leading to poor model performance on unseen data. Ridge Regression stabilizes the coefficients and decreases the variance of the model by incorporating regularization, resulting in improved generalization and decreased sensitivity to data noise.
+
+The Ridge Regression objective function is \cite{friedman2010}:
+\[\text{Minimize:} \quad \sum_{i=1}^{n} (y_i - \hat{y}_i)^2 + \lambda \sum_{j=1}^{p} \beta_j^2\]
+Where:
+\begin{itemize}
+    \item \( y_i \) is the actual value of the dependent variable (e.g., the actual market value of a player in the dataset).
+    \item \( \hat{y}_i \) is the predicted value of the dependent variable based on the regression model (e.g., the predicted market value of a player).
+    \item \( \beta_j \) are the regression coefficients for the independent variables (features) in the model. For example, \( \beta_j \) could represent the effect of "Age" or "Aerial Duel Won" on the player's market value or consistency.
+    \item \( \lambda \) is the \textbf{regularization parameter} that controls the strength of the penalty applied to the coefficients.
+    \item \( p \) is the number of independent variables (predictors). For example, this could be features like "Age," "Crosses," etc.
+    \item \( n \) is the number of observations (players) in the dataset.
+\end{itemize}
+
+\section{Model Evaluation Metrics}\label{sec:3.3}
+
+\subsection{Model Evaluation Metrics for Classification Models}\label{sec:3.3.1}
+
+Evaluating classification models using various metrics is crucial during both development and assessment phases. This study evaluated the performance of classification models by analyzing metrics such as accuracy, precision, recall, and F1 score within its scope. Every measurement offers a distinct perspective on the model's effectiveness, aiding in the recognition of its strengths and weaknesses across various scenarios. Through the use of different methods, we can enhance our understanding of how well a model will perform in practical situations, ensuring precise prediction and reducing costly errors.
+
+\subsubsection{Accuracy}
+
+Accuracy is a key metric commonly used to evaluate how well classification models perform \cite{alpaydine2020}. It determines the proportion of correctly classified instances out of the total instances in the dataset. In simpler terms, accuracy measures how frequently the model accurately predicts outcomes for all categories. The formula for calculating accuracy is \cite{kumar2024} \cite{powers2011}:
+\[\text{Accuracy} = \frac{\text{Number of Correct Predictions}}{\text{Total Number of Predictions}} = \frac{TP + TN}{TP + TN + FP + FN}\]
+Where:
+\begin{itemize}
+    \item \textbf{TP} (True Positives): The number of instances correctly predicted as positive.
+    \item \textbf{TN} (True Negatives): The number of instances correctly predicted as negative.
+    \item \textbf{FP} (False Positives): The number of instances incorrectly predicted as positive.
+    \item \textbf{FN} (False Negatives): The number of instances incorrectly predicted as negative.
+\end{itemize}
+Accuracy provides a quick and general assessment of the model's performance. A high accuracy score indicates that the model is accurately predicting most cases in the dataset. An example would be a scenario where the model is accurate 90\% of the time.
+
+\subsubsection{Precision}
+
+Precision is a metric that specifically evaluates the correctness of positive predictions generated by a classification model \cite{sokolova2009}. It determines the proportion of correct positive predictions out of all positive predictions generated by the model. Accuracy is crucial in scenarios where the consequences of false positives are significant, requiring the model to make strong predictions for the positive class. The formula for calculating precision is \cite{kumar2024} \cite{powers2011}:
+\[\text{Precision} = \frac{TP}{TP + FP}\]
+Precision tells us how many of the instances that the model labelled as positive are actually positive. A high precision score means that when the model predicts a positive class, it is likely correct.
+
+\subsubsection{Recall}
+
+Recall (also known as Sensitivity or True Positive Rate) is a key evaluation metric for classification models that measures the model’s ability to correctly identify all relevant positive instances in the dataset \cite{bishop2006}. It focuses on the proportion of actual positives that the model successfully captures. Recall is particularly important in situations where missing positive cases (false negatives) could have serious
+consequences. The formula for calculating recall is \cite{kumar2024} \cite{powers2011}:
+\[\text{Recall} = \frac{TP}{TP + FN}\]
+Recall tells us how well the model is at capturing all the true positive instances. A high recall score indicates that the model is effective at identifying most of the positive cases in the dataset.
+
+\subsubsection{F1 Score}
+
+The F1 Score merges precision and recall to provide a comprehensive evaluation of a model's performance \cite{powers2011}, which is why it is a commonly utilised metric for assessment. This is especially useful for handling imbalanced datasets or cases where both precision (accuracy of positive predictions) and recall (ability to identify all relevant positive instances) are important. The F1 Score is most useful when false positives and false negatives have significant impacts, calculated from precision and recall. The formula for calculating the F1 Score is \cite{kumar2024} \cite{powers2011}:
+\[\text{F1 Score} = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}}\]
+\begin{itemize}
+    \item \textbf{High F1 Score:} Indicates that the model is performing well in terms of both precision and recall. This is preferred in situations where both false positives and false negatives are expensive or when it is crucial to optimise the model's overall efficiency.
+    \item \textbf{Low F1 Score:} Indicates that the model is having difficulties with precision, recall, or both. This implies that the model might be generating an excessive amount of incorrect positive forecasts, failing to detect many true positives, or both at the same time.
+\end{itemize}
+
+\subsection{Model Evaluation Metrics for Regression Models}\label{sec:3.3.2}
+
+Evaluating regression models is essential through metrics that provide insights into the model's fit to the data and accuracy of predictions. Regression models predict continuous results while classification models predict categorical results. There are different measurements that can be used to evaluate the precision and accuracy of those predictions. R-squared and Root Mean Squared Error (RMSE) are commonly used metrics in regression analysis. These measurements help assess how well the model can explain the variance in the data and accurately forecast the real values.
+
+\subsubsection{R-squared}
+
+R-squared, also called the coefficient of determination, is an important measure used for assessing the effectiveness of regression models. It quantifies the proportion of the variance in the dependent variable that is explained by the independent variables in the model \cite{draper1998} \cite{hastie2009}. It provides an indication of how well the model fits the data, with a value between 0 and 1.
+
+The formula for calculating R-squared is \cite{cohen2002} \cite{bhandari2024}:
+\[R^2 = 1 - \frac{\text{RSS}}{\text{TSS}} = 1 - \frac{\sum_{i=1}^{n} (y_i - \hat{y}_i)^2}{\sum_{i=1}^{n} (y_i - \bar{y})^2}\]
+Where:
+\begin{itemize}
+    \item \( y_i \) is the actual value of the dependent variable for the \( i \)-th observation,
+    \item \( \hat{y}_i \) is the predicted value from the model for the \( i \)-th observation,
+    \item \( \bar{y} \) is the mean of the actual values,
+    \item \( n \) is the number of data points,
+    \item \textbf{RSS} (Residual Sum of Squares) is the sum of the squared differences between the actual and predicted values, representing the unexplained variance,
+    \item \textbf{TSS} (Total Sum of Squares) is the sum of the squared differences between the actual values and the mean of the actual values, representing the total variance in the data.
+\end{itemize}
+R-squared provides a straightforward interpretation of how well the model explains the variation in the dependent variable \cite{bhandari2024}:
+\begin{itemize}
+    \item \textbf{R-squared = 1:} Indicates that the model perfectly explains all the variability in the dependent variable, meaning the predicted values exactly match the actual values.
+    \item \textbf{R-squared = 0:} Indicates that the model does not explain any of the variance in the dependent variable.
+    \item \textbf{R-squared < 0:} This can occur in cases where the model fits the data poorly, potentially due to overfitting or using a model that does not capture the underlying relationship.
+\end{itemize}
+
+\subsubsection{Root Mean Squared Error (RMSE)}
+
+Root Mean Squared Error (RMSE) is frequently used as a metric to assess how well regression models are performing. It calculates the average magnitude of the errors between the predicted values and the real values \cite{draper1998} \cite{hastie2009}. The square root of the mean of the squared differences between the predicted and real values. RMSE provides a way to quantify how far the predictions are from the actual values in the same units as the target variable.
+
+The formula for calculating RMSE is \cite{chatterjees2015}:
+\[\text{RMSE} = \sqrt{\frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2}\]
+Where:
+\begin{itemize}
+    \item \( y_i \) is the actual value of the dependent variable,
+    \item \( \hat{y}_i \) is the predicted value of the dependent variable from the model,
+    \item \( n \) is the number of data points.
+\end{itemize}
+Key Points:
+\begin{itemize}
+    \item \textbf{Lower RMSE:} Indicates that the model's predictions are more accurate, with smaller average errors.
+    \item \textbf{Higher RMSE:} Suggests that the model's predictions are less accurate, with larger average errors.
+\end{itemize}
+
+\chapter{Implementation}\label{ch:4}
+
+\section{Data Collection and Data Structure}\label{sec:4.1}
+
+The data used in this research was sourced from Kaggle \cite{varma2020}, a popular platform for datasets and data competitions. Kaggle offers datasets from various fields like sports analytics. The provided dataset examines the statistical performance of football players across various leagues and seasons. This particular dataset is related to statistics of football players, capturing player attributes and performance measurements across various seasons from 17/18 to 20/21. The dataset consists of player information scraped from transfermarkt.co.uk and performance data over the last 4 seasons of these players via fbref.com. Transfer Values are updated as of September 2nd 2021. Performance data only consists of players who played within Europe's Top 5 Leagues - English Premier League, Italian Serie A, Spanish La Liga, German Bundesliga and French Ligue 1. Any player who did not participate in any of these leagues during one or more seasons in the last four years will have NaN values underneath those respective columns. Each season’s data includes match statistics for players, with a focus on in-depth performance metrics such as goals, assists, fouls, tackles, interceptions, and more. The data collected is highly relevant for the analysis of football performance trends, individual player development, and the financial market around player transfers. Because the dataset spans several years, it enables the identification of temporal trends in player performance, such as improvement or decline over time, which is vital for scouting, team management, and market predictions. The dataset was provided in CSV format and was loaded into a Python environment for analysis.
+
+The data is formatted in a table with 2,075 rows representing players and 548 columns with player attributes and performance metrics. Every row in the data set represents a specific football player. As an example, the first row displays information about Kylian Mbappe (playing for Paris Saint-Germain), while the subsequent row showcases Erling Haaland (playing for Borussia Dortmund). The information includes top football players from major European leagues, enabling comparisons among high-profile athletes. The 548 columns contain different player information details. These columns can be divided into several broad categories:
+
+\begin{itemize}
+    \item Basic Player Information:
+    \begin{itemize}
+        \item Player: Name of the player (e.g., "Kylian Mbappe").
+        \item Club: The football club the player was playing for when the dataset was gathered. (e.g., "Paris Saint-Germain").
+        \item Age: The player's age when the dataset was gathered.
+        \item Position: The player's position on the field  (e.g., Attack, Midfield, Defender, Goalkeeper).
+        \item Nation: The player's nationality (e.g., France, Norway, England).
+    \end{itemize}
+    \item Financial Information:
+    \begin{itemize}
+        \item Value: The estimated market value of the player in euros. This value varies depending on how well the player performs, their age, and the demand in the transfer market.
+        \item Contract Years Left: The number of years remaining on the player's current contract with their respective club.
+    \end{itemize}
+    \item Seasonal Performance Metrics: This includes performance data for each season from 2017/18 to 2020/21, such as:
+    \begin{itemize}
+        \item MP (Matches Played): The number of matches in which the player appeared.
+        \item Goals(Gls): The number of goals scored during the season.
+        \item Assists(Ast): The number of assists provided
+        \item Min: Total minutes spent on the field during the season.
+        \item Yellow Cards, Red Cards, Fouls, etc.
+    \end{itemize}
+    \item Advanced Performance Metrics: These columns cover advanced metrics such as:
+    \begin{itemize}
+        \item Tackles, Interceptions, Aerial Duels Won: These attributes are necessary for assessing a player's defensive capabilities.
+        \item Crosses, Key Passes, Dribbles: These attributes are crucial for evaluating offensive contributions, particularly for wingers and attacking midfielders.
+        \item Own Goals, Penalties, Offsides, etc.
+    \end{itemize}
+\end{itemize}
+
+\section{Data Visualization}\label{sec:4.2}
+
+Data visualization is essential in data analysis, providing a strong way to understand and convey complex data. It acts as an essential stage in converting unprocessed numerical or categorical data into visual forms that are simpler to understand and evaluate \cite{tufte2001}. Data visualization employs various visual representations like charts, graphs, maps, to uncover hidden trends, patterns, relationships, and outliers in raw data, enabling a deeper understanding of the dataset.
+
+In the context of this dissertation, data visualization played a crucial role in analyzing football player metrics and their associated market values \cite{gudmundsson2017}. The dataset comprised various attributes such as age, position, performance statistics, and market value, which were thoroughly explored using a range of visualization techniques. These visualizations provided essential insights into the distribution and variability of the data, guiding the direction of the subsequent modeling processes.
+
+\subsection{Distribution of Player Values}\label{sec:4.2.1}
+
+The histogram provided in \textbf{Figure 4.1} shows how player market values are distributed in the dataset. A histogram is employed to illustrate the spread of numerical information \cite{tufte2001}. The player values are shown along the x-axis using scientific notation like \(1.0 \times 10^8\), representing 100 million. The y-axis shows the frequency, which indicates how many players fall into each of the value ranges represented by the bins. The bars in the histogram show how many players fall into each range of values, allowing us to see how the player values are distributed across the dataset. The histogram reveals a \textbf{right-skewed distribution}. This means that a large number of players have relatively low values, with the frequency sharply decreasing as player value increases. The vast majority of players have values clustered between 0 and approximately \(0.2 \times 10^8\) (or 20 million). As we move to higher player values (e.g., above 50 million), the number of players within those ranges becomes significantly smaller. There are a few outliers on the far right, indicating that only a small number of players have extremely high values, exceeding \(1.0 \times 10^8\) (100 million). The skewness towards lower values may reflect a common scenario in football where only top-tier players command very high market values, while the majority are valued much lower.
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=.75\textwidth]{DistributionOfPlayerValues.png}
+    \caption{Distribution of Player Values}
+    \label{fig:DistributionOfPlayerValues}
+\end{figure}
+
+\subsection{Average Value Distribution by Position}\label{sec:4.2.2}
+
+The pie chart in \textbf{Figure 4.2} shows how player values are spread out among different positions in your dataset \cite{gudmundsson2017} \cite{rein2016}. Each segment of the pie graph represents a distinct position in football (like Forward, Midfielder, Defender, Goalkeeper), and the size of each segment shows the average player value in that position in relation to the overall average worth for all positions. The largest slice of the pie chart represents the \textbf{"Attack"} position, which accounts for 32.2\% of the total average player value. The second-largest slice is for the \textbf{"Midfield"} position, making up 30.3\% of the total average player value. Attackers and Midfielders have the highest average market values, reflecting their critical roles in football teams. These positions are often associated with game-changing actions such as scoring goals, creating opportunities, and controlling the flow of the game, which can command higher market values. The \textbf{"Defender"} position accounts for 22.3\% of the total average player value. Defenders have a moderate share of the total average value, highlighting their importance in preventing goals and contributing to the team's defensive stability. The smallest slice represents the \textbf{"Goalkeeper"} position, with 15.3\% of the total average player value. Goalkeepers, despite their specialized and crucial role, generally have lower average market values.
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=11cm,height=9cm]{AvgValueDistributionByPos.png}
+    \caption{Distribution of Player Values}
+    \label{fig:AvgValueDistributionByPos}
+\end{figure}
+
+\subsection{Distribution of Player Value by Age Group}\label{sec:4.2.3}
+
+The provided visualization in \textbf{Figure 4.3} is a box plot that displays the distribution of player values across different age groups \cite{knaflic2015}. This plot provides insights into the central tendency, spread, and outliers of player values within each age group in the dataset. Each box in the plot represents a different age group, allowing for a comparison of player values across these age groups. The x-axis shows the various age categories. The data has been classified into five distinct age brackets: \textbf{'15-20'}, \textbf{'21-25'}, \textbf{'26-30'}, \textbf{'31-35'}, and \textbf{'36-40'}. The y-axis represents the player values, scaled in scientific notation (\( \times 10^8 \)). The values range from 0 to more than 140 million, represented as \( 1.4 \times 10^8 \). The \textbf{21-25} and \textbf{26-30} Age Groups have the highest median player values, indicating that players in these age ranges tend to be valued more highly. This is likely because players in these age groups are often in their prime playing years. Even though younger players (\textbf{15-20} Age Group) generally have lower median values than those in their prime, there are still some outliers with very high values, suggesting a few extremely valuable young players. Elderly players, especially those in the age brackets of \textbf{31-35} and \textbf{36-40}, typically exhibit lower median figures and smaller box sizes, suggesting less variation in value. However, there are still some outliers, especially in the \textbf{31-35} group, showing that some older players retain high market values. The distribution of player values by age group suggests that players are generally most valuable in their mid-20s to early 30s, which aligns with the typical peak performance years in football. The presence of outliers across all age groups, especially in younger and older groups, highlights that exceptional players can exist at any age, although they are less common.
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width=.75\textwidth]{PlayerValueByAgeGroup.png}
+    \caption{Distribution of Player Values by Age Group}
+    \label{fig:PlayerValueByAgeGroup}
+\end{figure}
+
+\subsection{Distribution of Contract Year}\label{sec:4.2.4}
+
+The histogram in \textbf{Figure 4.4} visualizes the distribution of contract years left for players in the dataset \cite{gudmundsson2017}. The x-axis represents the number of years left on players' contracts, ranging from 0 to 10 years. The y-axis indicates the number of players (frequency) that have a certain number of contract years left. The majority of players have between 1 and 4 years left on their contracts. The peak occurs at 2 years, with the highest number of players having two years remaining. A smaller but still significant number of players have contracts lasting 5 or 6 years. Very few players have long-term contracts extending 7 years or more, which might reflect the rarity of very long contracts in football. A small group of players has no time left on their contracts (0 years), which could indicate players nearing free agency or those whose contracts have expired. The distribution is right-skewed, indicating that the majority of players have contracts lasting between 1 to 4 years, with fewer players having longer contracts leading to a decrease in frequency.
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=.75\textwidth]{DistributionOfContrctYears.png}
+    \caption{Distribution of Contract Years Left}
+    \label{fig:DistributionOfContrctYears}
+\end{figure}
+
+\section{Player Performance Consistency Analysis Across Multiple Seasons}\label{sec:4.3}
+
+Consistency is an important attribute that differentiates top football players from others \cite{carling2009}. A player's reliability across various seasons demonstrates their ability to consistently deliver top-notch performances, increasing their value to teams. Analyzing players' performance metrics across multiple seasons can help determine the level of consistency in their performance across various statistical measures \cite{reinr2016}.
+
+In this part, we analyze player consistency across different seasons. The goal is to determine the mean and coefficient of variation (CV) for multiple performance metrics to evaluate the uniformity of each player. This assessment helps identify players who consistently excel and those who may show significant fluctuations in their performance. The CV helps evaluate differences in performance consistency, facilitating comparisons across metrics with varying scales.
+
+More than 100 metrics were chosen to cover all aspects of player performance, such as offensive, defensive, and passing accuracy. Each player's metric consistency is evaluated by calculating the mean, standard deviation, and coefficient of variation (CV) across the four seasons (2020/21, 2019/20, 2018/19, and 2017/18). For each metric, the following calculations are performed:
+\begin{itemize}
+    \item The \textbf{mean} for each player’s performance metric is calculated by averaging their performance across the four seasons \cite{sokolova2017}. This provides insight into the player's average performance level across the seasons. For instance, the Goals (Gls) metric would calculate the mean amount of goals a player achieved throughout the four seasons.
+    \item The \textbf{standard deviation} quantifies the level of diversity or distribution in the player's performance \cite{anderson2013}. A smaller standard deviation shows the player has been consistent over seasons,  whereas a larger standard deviation indicates more variation in performance. For instance, the standard deviation of Matches Played (MP) indicates the degree of variation in the number of matches played across different seasons.
+    \item The \textbf{CV} is determined by dividing the standard deviation by the mean and expressed as a percentage. This normalized metric enables us to assess consistency among various metrics. A lower coefficient of variation suggests the player's performance is more stable in comparison to their average level, whereas a higher coefficient of variation shows more inconsistency.  For instance, the Goals (Gls) section of the CV will indicate the consistency of the player's precision over different seasons.
+\end{itemize}
+
+\begin{table}[ht]
+    \centering
+    \caption{Player Goals (Gls) and Matches Played (MP) Statistics}
+    \resizebox{0.9\textwidth}{!}{ % 80% of the text width, adjust as needed
+    \begin{tabular}{|c|c|c|c|c|c|c|}
+        \hline
+        \textbf{Player} & \textbf{Gls Mean} & \textbf{Gls Std Dev} & \textbf{Gls CV} & \textbf{MP Mean} & \textbf{MP Std Dev} & \textbf{MP CV} \\ \hline
+        \textbf{Kylian Mbappe} & 22.75   & 8.958236434  & 39.37686444   & 26.75  & 4.787135539 & 17.89583379  \\ \hline
+        \textbf{Erling Haaland} & 12      & 10.86278049  & 90.52317076   & 22.75  & 5.5         & 24.17582418  \\ \hline
+        \textbf{Jadon Sancho}   & 9.5     & 6.757711644  & 71.13380678   & 26     & 9.933109617 & 38.20426776  \\ \hline
+    \end{tabular}
+    }
+\end{table}
+
+To gain a visual understanding of the variability of each performance metric, the distribution of the coefficient of variation (CV) is plotted for each metric. Histograms are created for each metric to show the frequency distribution of CV values. Each histogram represents the range of consistency for that metric across the player dataset. Below CV distribution of Goals and Matches Played are shown.
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=14cm,height=5cm]{Goals CV.png} % Fixed width of 10 cm
+    \caption{Goals CV Distribution}
+    \label{fig:Goals_CV}
+\end{figure}
+
+The histogram in \textbf{Figure 4.5} represents the distribution of the coefficient of variation (CV) for the metric Goals (Gls) across multiple football players \cite{sarmento2018}. The x-axis represents the CV values for goals, expressed as a percentage. The y-axis shows the frequency, or the number of players that fall within each CV range. The distribution shows a right-skewed shape, meaning that most players have low to moderate CV values, indicating relatively consistent goal-scoring performance for many players. The majority of players have CV values below 20\%, meaning that they consistently score a similar number of goals across seasons. There is a smaller group of players with moderate inconsistency in goal-scoring, with CV values between 30\% and 60\%. These players experience some fluctuation in performance, potentially due to external factors like injuries or tactical changes. A very small number of players have CV values exceeding 60\%, meaning their goal-scoring performance varied dramatically across seasons.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=14cm,height=5cm]{MP CV.png} % Fixed width of 10 cm
+    \caption{Matches Played CV Distribution}
+    \label{fig:MP_CV}
+\end{figure}
+
+This histogram in \textbf{Figure 4.6} displays the coefficient of variation (CV) for the metric Matches Played (MP) across football players over multiple seasons. The distribution is right-skewed, meaning that the majority of players have low to moderate CV values, indicating that many players have been consistent in their match participation across seasons. A significant number of players have CV values below 20\%, suggesting that they consistently played a similar number of matches in each season. A small group of players has CV values over 50\%, indicating considerable inconsistency in the number of matches played.
+
+\begin{table}[ht]
+    \centering
+    \caption{Goals CV and Matches Played CV Statistics}
+    \resizebox{0.4\textwidth}{0.1\textheight}{ % 80% of the text width, adjust as needed
+    \begin{tabular}{|c|c|c|}
+        \hline
+        & \textbf{Gls CV} & \textbf{MP CV} \\ \hline
+        \textbf{count} & 2075 & 2075 \\ \hline
+        \textbf{mean}  & 38.310466 & 30.875474 \\ \hline
+        \textbf{std}   & 21.889954 & 20.639796 \\ \hline
+        \textbf{min}   & 0 & 0 \\ \hline
+        \textbf{25\%}  & 13.333333 & 15.384615 \\ \hline
+        \textbf{50\%}  & 40.824829 & 25.310765 \\ \hline
+        \textbf{75\%}  & 53.924957 & 43.579045 \\ \hline
+        \textbf{max}   & 119.499284 & 127.179042 \\ \hline
+    \end{tabular}
+    }
+\end{table}
+
+The \textbf{table 4.2} presented shows the summary statistics for the Coefficient of Variation (CV) for two key performance metrics: Goals (Gls) and Matches Played (MP). These summary statistics provide insights into the variability in player performance across multiple seasons, helping us assess player consistency. Both Gls CV and MP CV have a sample size of 2075 players. The mean Goal CV is 38.31\%, indicating that, on average, the goals scored by players fluctuated by approximately 38\% from their mean performance over the four seasons. The mean CV for matches played is 30.87\%, showing that the number of matches played by players fluctuated by about 31\%. This implies that most players experienced some degree of variability in match participation, though it is generally more consistent than goal-scoring performance. 
+
+The standard deviation for Goals (Gls) is 21.89, indicating a wide spread of CV values around the mean. Some players exhibit highly consistent goal-scoring, while others show significant fluctuations. The standard deviation for MP is 20.64, suggesting a similar level of spread in match participation consistency. Players vary in their ability to play a consistent number of matches across seasons. The 75th percentile for Goals (Gls) is 53.92\%, showing that 75\% of players have a CV lower than this value, while the remaining 25\% have more volatile goal-scoring performance. The 75th percentile for MP is 43.58\%, indicating that 75\% of players have moderate to low variability in match participation, with only a quarter of players exhibiting higher variability.
+
+In this study, we chose the 75th percentile as the threshold for determining consistency because it helps us focus on players who show significant variability in their performance. Players whose CV (Coefficient of Variation) is above the 75th percentile are considered to have higher variability than 75\% of the players. By choosing this threshold, we capture the top 25\% players whose performance is the most inconsistent across seasons.
+
+The 75th percentile is a good balance. If we chose a lower threshold, like the 50th percentile \cite{sarmento2018}, we would capture too many players as inconsistent, even those with mild fluctuations. Conversely, choosing a higher threshold (e.g., 90th percentile) would be too strict and could miss important cases of inconsistency. The lower 75\% of players, who fall below this threshold, are generally more consistent in their performance.
+
+We are also considering consistency across multiple performance metrics, not just one. A player might be inconsistent in one metric but consistent in many others. By setting the threshold at 70\% of metrics, we are looking for players who are generally reliable, even if they fluctuate in one or two areas. This makes the classification of "consistent" or "inconsistent" more robust.
+
+\begin{table}[ht]
+    \centering
+    \caption{Number of Consistent and Non-Consistent Players}
+    \begin{tabular}{|c|c|}
+        \hline
+        \textbf{Number of Consistent Players} & 1175  \\ \hline
+        \textbf{Number of Non-Consistent Players} & 900  \\ \hline
+    \end{tabular}
+\end{table}
+
+\section{Classification Model Training and Testing}\label{sec:4.4}
+
+\subsection{Decision Tree Classifier}\label{sec:4.4.1}
+
+To build the Decision Tree Classifier model, the training data was first pre-processed using a column transformer. The column transformer handled both numerical and categorical
+features: numerical features were standardized using StandardScaler \cite{james2013} \cite{Kaggle2021}, while categorical features were encoded using OneHotEncoder. This ensured that all features were appropriately prepared for the model, allowing the Decision Tree to effectively learn patterns from both numerical and categorical data.
+
+After pre-processing the data, the transformed dataset was used to train the Decision Tree Classifier. Optimization of hyperparameters was carried out with RandomizedSearchCV to discover the optimal hyperparameter combination \cite{Bergstra2012} \cite{Pedregosa2011}, including tree depth, minimum samples for node splitting, minimum samples per leaf, and class weights. RandomizedSearchCV tested various configurations and assessed the model's effectiveness through cross-validation. The optimal hyperparameters were selected based on the best cross-validation score, ensuring the model was fine-tuned for better accuracy.
+
+Predictions were conducted on the test dataset, and the model's effectiveness was evaluated using typical classification measures such as accuracy, precision, recall, and the F1 score \cite{sokolova2009}. The findings suggest that the Decision Tree algorithm effectively distinguished players by analyzing historical performance data, categorizing them as either "consistent" or "inconsistent". The confusion matrix in \textbf{table 4.4} also shows that the model was relatively balanced in its predictions for both consistent and inconsistent players \cite{Safavian1991}. The model correctly classified 299 consistent players. The model incorrectly predicted 51 inconsistent players as consistent. The model incorrectly predicted 104 consistent players as inconsistent. The model correctly classified 185 inconsistent players.
+\begin{table}[ht]
+    \centering
+    \resizebox{0.7\textwidth}{!}{ % 80% of the text width, adjust as needed
+    \begin{tabular}{|c|c|c|}
+        \hline
+        & \textbf{Predicted Consistent} & \textbf{Predicted Inconsistent} \\ \hline
+        \textbf{Actual Consistent} & 299 & 51 \\ \hline
+        \textbf{Actual Inconsistent} & 104 & 185 \\ \hline
+    \end{tabular}
+    }
+    \caption{Confusion Matrix for Decision Tree Classifier}
+\end{table}
+
+The Decision Tree Classifier achieved an accuracy of 75.7\%, indicating that approximately 76\% of the predictions matched the player consistency labels. Additionally, the model achieved a macro average precision of 76.3\%, meaning that about 76.3\% of the predicted consistent and inconsistent labels were correct. The macro average recall was 74.7\%, signifying that the model identified 74.7\% of the actual consistent and inconsistent players correctly. The F1 score was 74.9\%, which demonstrates that the model effectively achieved a good balance between precision and recall, establishing it as a robust model for this classification task.
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=.80\textwidth]{DiciPieChart.png}
+    \caption{Distribution of Actual and Predicted Label for Decision Tree Classifier}
+    \label{fig:DiciPieChart}
+\end{figure}
+
+The provided pie charts in \textbf{Figure 4.7} illustrate the distribution of actual consistency labels compared to the predicted consistency labels. The actual data indicates that 54.8\% of players were consistent and 45.2\% were inconsistent. However, the model predicted that 63.1\% of players were consistent and 36.9\% were inconsistent. This slight difference suggests that while the model performs well, it may have a small tendency to classify more players as consistent than inconsistent.
+
+\subsection{Random Forest Classifier}\label{sec:4.4.2}
+
+To construct the Random Forest Classifier model, the training dataset underwent a pre-processing stage using a column transformer \cite{breiman2001} \cite{Kaggle2021}. This step addressed both numerical and categorical features by standardizing numerical features with StandardScaler and encoding categorical features using OneHotEncoder. By preprocessing the data in this manner, the model was equipped to handle a mix of feature types and learn patterns from both numerical and categorical inputs effectively.
+
+This pre-processed dataset was used to train the Random Forest Classifier. In the training stage, RandomizedSearchCV was utilized to tune hyperparameters by testing different combinations of parameters \cite{Biau2016}like n\_estimators, max\_depth, and min\_samples\_split. This technique enabled the model to automatically discover the best combination of parameters by cross-validating through numerous configurations. The best-performing model was chosen based on accuracy.
+
+After completing the training phase, predictions were made and the performance of the Random Forest model was evaluated on the test set using common classification metrics like accuracy, precision, recall, and the F1 score \cite{Pedregosa2011} \cite{sokolova2009}. The accuracy of the Random Forest model reached an impressive 84.98\%, showing that close to 85\% of the predictions aligned with the actual consistency labels. Additionally, the macro average precision was 85.02\%, which indicates that 85\% of the predicted consistent and inconsistent labels were accurate. The macro average recall was 84.60\%, indicating that 85\% of the actual consistent and inconsistent players were correctly identified by the model. The model’s F1 score was 84.75\%, representing a strong balance between precision and recall, making it a well-rounded classifier.
+\begin{table}[ht]
+    \centering
+    \resizebox{0.7\textwidth}{!}{ % 80% of the text width, adjust as needed
+    \begin{tabular}{|c|c|c|}
+        \hline
+        & \textbf{Predicted Consistent} & \textbf{Predicted Inconsistent} \\ \hline
+        \textbf{Actual Consistent} & 310 & 40 \\ \hline
+        \textbf{Actual Inconsistent} & 56 & 233 \\ \hline
+    \end{tabular}
+    }
+    \caption{Confusion Matrix for Random Forest Classifier}
+\end{table}
+
+The confusion matrix in \textbf{table 4.5} also shows that the model was relatively balanced in its
+predictions for both consistent and inconsistent players. The model correctly classified 310 players as consistent \cite{Koehrsen2018}. 40 players were incorrectly classified as consistent when they were actually inconsistent. 56 players were incorrectly classified as inconsistent when they were actually consistent. The model correctly identified 233 players as inconsistent.
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=.80\textwidth]{RandPieChart.png} % Fixed width of 10 cm
+    \caption{Distribution of Actual and Predicted Label for Random Forest Classifier}
+    \label{fig:graph_image}
+\end{figure}
+
+The pie charts in \textbf{Figure 4.8} show how consistent and inconsistent players are distributed compared to what was predicted. In the actual data set, consistency is exhibited by 54.8\% of the players, with inconsistency being displayed by 45.2\%. The predicted distribution shows that 57.3\% of players were classified as consistent, with the remaining 42.7\% categorized as inconsistent. The strong performance of the model in capturing player consistency is evident in the close similarity between the actual and predicted distributions.
+
+\subsection{Gradient Boosting Classifier}\label{sec:4.4.3}
+
+In order to build the Gradient Boosting Classifier model, the initial step involved pre-processing the training data with a column transformer \cite{friedman2001} \cite{Kaggle2021}. This stage dealt with both numerical and categorical characteristics, standardizing numerical characteristics with StandardScaler and encoding categorical characteristics with OneHotEncoder. This pre-processing step guaranteed that the model was able to effectively manage both kinds of data, enabling it to recognize patterns from the varying feature types.
+
+The processed data was utilized for training the Gradient Boosting Classifier. Hyperparameter tuning was performed with RandomizedSearchCV, analyzing parameters such as n\_estimators, learning\_rate, and max\_depth in order to enhance the model \cite{chen2016}. The best model was chosen by conducting cross-validation with different hyperparameter combinations.
+
+Once the model was ready, it was assessed on the test dataset using key metrics such as accuracy, precision, recall, and the F1 score \cite{sokolova2009}. The accuracy of the Gradient Boosting model reached 86.9\%, indicating that around 87\% of its predictions were in line with the actual labels. Moreover, the model achieved a mean macro precision of 87.2\%, indicating that 87.2\% of the forecasted labels (whether correct or incorrect) were accurate. The model accurately recognized 86.3\% of both consistent and inconsistent players, as indicated by the macro average recall. The model's F1 score was 86.6\%, reflecting a strong balance between precision and recall.
+\begin{table}[ht]
+    \centering
+    \resizebox{0.7\textwidth}{!}{ % 80% of the text width, adjust as needed
+    \begin{tabular}{|c|c|c|}
+        \hline
+        & \textbf{Predicted Consistent} & \textbf{Predicted Inconsistent} \\ \hline
+        \textbf{Actual Consistent} & 321 & 29 \\ \hline
+        \textbf{Actual Inconsistent} & 55 & 234 \\ \hline
+    \end{tabular}
+    }
+    \caption{Confusion Matrix for Gradient Boosting Classifier}
+\end{table}
+
+The confusion matrix in \textbf{table 4.6} also shows that the model was relatively balanced in its predictions for both consistent and inconsistent players \cite{Pedregosa2011}. The model correctly classified 321 players as consistent. 29 players were incorrectly classified as consistent when they were actually inconsistent. 55 players were incorrectly classified as inconsistent when they were actually consistent. The model correctly classified 234 players as inconsistent.
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=.80\textwidth]{GradPieChart.png} % Fixed width of 10 cm
+    \caption{Distribution of Actual and Predicted Label for Gradient Boosting Classifier}
+    \label{fig:graph_image}
+\end{figure}
+
+The pie graphs in \textbf{Figure 4.9} visually compare the present distribution of consistent and inconsistent players with the predicted distribution. Actual data indicates that 54.8\% of players show consistency, while the other 45.2\% do not exhibit consistency. The model's prediction suggests that 58.8\% of players demonstrate consistency, while 41.2\% exhibit inconsistency. Although there is a slight difference between the real and anticipated distributions, the general resemblance suggests that the model is accurately representing the basic patterns in the data.
+
+\section{Regression Model Training and Testing}\label{sec:4.5}
+
+\subsection{Multiple Regression}\label{sec:4.5.1}
+
+A Linear Regression model was trained to predict player values based on a combination of numerical and categorical features. Data pre-processing involved creating a column transformer to handle numerical and categorical data \cite{james2013}: numerical features were normalized using MinMaxScaler and enhanced with Polynomial Features (degree 2) to capture non-linear connections, while categorical features were encoded with OneHotEncoder to represent categories as binary vectors. The data for training was prepared and a Linear Regression model was trained, followed by the use of two metrics to assess its performance.
+\begin{itemize}
+    \item The R-squared (R\textsuperscript{2}) score measures the regression model's ability to explain the variation in the data \cite{draper1998}. The achieved R\textsuperscript{2} score of 0.578 by the model suggests it explains around 57.8\% of the variance in player values. This score shows moderate explanatory power but implies that the model is missing certain aspects of the data.
+    \item The Root Mean Squared Error (RMSE) measures the average error between the predicted and actual values \cite{Padhma2024} \cite{Abhigyan2020}. The approximate RMSE of 9.56 million indicates the scale of errors in the model's predictions. A smaller RMSE signifies superior model performance, implying that despite decent performance, there is still potential to decrease prediction errors.
+\end{itemize}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=.75\textwidth]{MultiActPreGraph.png} % Fixed width of 10 cm
+    \caption{Distribution of Actual and Predicted Prices for Multiple Regression}
+    \label{fig:MultiActPreGraph}
+\end{figure}
+The graph that has been provided in \textbf{Figure 4.10} shows the distribution of actual versus predicted prices \cite{clauswilke2020} \cite{Kaggle2021}. It’s a density plot where the blue curve represents the actual prices, and the orange curve represents the predicted prices generated by the Linear Regression model.
+
+Both the actual and predicted price distributions are skewed to the right, which means most prices are concentrated on the lower end, while fewer data points exist in the higher value range. The alignment between the actual and predicted curves is generally close, especially for prices around the mean or lower range, which suggests that the model is relatively accurate in predicting prices that are close to the mean or typical player value. However, as prices increase, the orange predicted curve diverges from the actual price curve (blue), indicating that the model struggles more with predicting higher-priced players.
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=.75\textwidth]{MultiScatter.png} % Fixed width of 10 cm
+    \caption{Actual vs Predicted values with consistency label for multiple regression}
+    \label{fig:MultiScatter}
+\end{figure}
+
+This scatter plot in \textbf{Figure 4.11} visualizes the relationship between actual player values and the predicted values generated by the Linear Regression model \cite{Abhigyan2020}. It also categorizes players based on their consistency labels, distinguishing between consistent and inconsistent players. Each point on the plot represents a player, where the x-axis shows the actual player value (true market value) and the y-axis shows the predicted value of the player, as estimated by the linear regression model. Blue circles represent consistent players, indicating that their performances across seasons have been stable. Orange crosses represent inconsistent players, indicating greater fluctuations in their performances. In this plot, many points are clustered towards the bottom left corner, meaning the predicted values are often close to the actual values for low-value players. The blue circles are spread across the plot, suggesting that the linear regression model performs reasonably well for consistent players, particularly for those with lower actual values. Some of the blue circles further from the diagonal line indicate that the model occasionally underestimates or overestimates the value of consistent players, especially for high actual values. The orange crosses are more scattered, particularly for higher actual values, showing that the model struggles more with inconsistent players.
+
+\subsection{XGBoost Regressor}\label{sec:4.5.2}
+
+An XGBoost Regressor model was trained to predict player values based on a combination of numerical and categorical features \cite{chen2016} \cite{Kaggle2021}. The data pre-processing involved creating a column transformer that handled both types of features: numerical features were scaled using MinMaxScaler to bring them into a uniform range (0 to 1), and categorical features were encoded using OneHotEncoder to convert them into binary vectors, allowing the model to process them effectively.
+
+The model training process included a hyperparameter tuning step using RandomizedSearchCV to optimize the model \cite{friedman2001}. The search explored various combinations of parameters, such as the number of trees (n\_estimators), tree depth (max\_depth), learning rate, and subsample rates. This ensured that the model was configured to balance complexity and accuracy, reducing the risk of overfitting or underfitting.
+
+After training, the performance of the XGBoost Regressor model was evaluated using two key metrics:
+\begin{itemize}
+    \item The R-squared value indicates how much of the variability in the data is explained by the model \cite{bhandari2024}. In this case, the (R\textsuperscript{2}) score suggests that the model can explain approximately 63.1\% of the variation in player values. This evaluation shows that the model grasps the majority of the data's patterns, yet there is potential for improvement as 36.9\% of the variability remains unexplained.
+    \item RMSE assesses how accurate predictions are by measuring the average magnitude of errors in relation to the actual values. The model's RMSE was measured at 9.32 million, suggesting that the average variance between the model's predictions and actual values was 9.32 million units. A lower RMSE indicates better performance, so even though the model is doing well, there is still room to improve accuracy by reducing prediction errors.
+\end{itemize}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=.75\textwidth]{XGActPreGraph.png} % Fixed width of 10 cm
+    \caption{Distribution of Actual and Predicted Prices for XGBoost Regressor}
+    \label{fig:XGActPreGraph}
+\end{figure}
+
+The graph in \textbf{Figure 4.12} illustrates the distribution of actual and predicted player values generated by the XGBoost Regressor model \cite{Bertini2006}. The blue line represents the distribution of the actual player values, while the orange line shows the predicted values made by the model. The y-axis reflects the density of the data points, and the x-axis represents the player values. Both the actual and predicted value curves follow a similar pattern, which indicates that the XGBoost Regressor was able to capture the general distribution of the player values. This suggests that the model's predictions are close to the actual values in terms of their overall structure and trend. The orange line (predicted values) slightly overestimates the values in comparison to the blue line (actual values), particularly at the peak of the distribution. This suggests that the model tends to over-predict some of the player values, which might explain why the RMSE (9.32 million) is relatively high, indicating prediction errors at certain points. Both lines extend towards higher values, but the predicted curve shows a slightly wider spread. This highlights that the model predicts a small number of player values as higher than the actual values, resulting in slight overestimation at the upper end of the value range.
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=.75\textwidth]{XGBScatter.png} % Fixed width of 10 cm
+    \caption{Actual vs Predicted values with consistency label for XGBoost Regressor}
+    \label{fig:XGBScatter}
+\end{figure}
+
+The scatter plot in \textbf{Figure 4.13} illustrates the relationship between actual and predicted player values using the XGBoost Regressor model, with the consistency label as an additional factor \cite{Bertini2006} \cite{chen2016}. Blue circles represent players classified as consistent. Orange crosses represent players classified as inconsistent. Ideally, if the predicted values perfectly matched the actual values, all points would lie along a diagonal line where the actual value equals the predicted value. The consistent players (blue) seem to have more accurate predictions as they tend to cluster closer to the diagonal, while inconsistent players (orange) tend to show more deviation from the ideal line. Consistent players (blue) are generally predicted with greater accuracy, especially for lower to moderate player values. The predicted values for consistent players stay relatively close to the actual values, indicating the model performs better for these players. Inconsistent players (orange) show more dispersion from the actual values, indicating higher variance in model predictions. This suggests that the model may struggle to predict player values for inconsistent players accurately. A few points, particularly at higher predicted values, appear far from the majority of points, indicating potential outliers or players whose values were difficult for the model to predict accurately.
+
+\subsection{Ridge Regression}\label{sec:4.5.3}
+
+A Ridge Regression model was trained to predict player values, with a focus on handling both numerical and categorical features effectively \cite{hoerl1970}. Numerical features were identified and scaled using the MinMaxScaler, ensuring that all numerical data is on a consistent scale. Categorical features were encoded using OneHotEncoder, transforming the categories into binary vectors that the model can process effectively. A column transformer was employed to handle both numerical and categorical data in one step. This is crucial because Ridge Regression, like most linear models, requires that all data be numeric. 
+
+The Ridge Regression model was selected for its capacity to address multicollinearity in the data through the use of L2 regularization. L2 regularization prevents overfitting by penalizing large coefficients, ensuring the model's strong performance on new data. GridSearchCV was used to adjust the alpha parameter, representing the regularization strength, by trying out different alpha values (0.1, 1, 10, 100, 1000). A larger alpha value applies stronger regularization. GridSearchCV was employed to determine the best regularization strength by performing cross-validation on the model using varying alpha values. The CV process divided the data into training and validation sets to assess the model's performance with various alpha combinations.
+
+\begin{itemize}
+    \item The R-squared score \cite{bhandari2024} for the Ridge model is 0.663, meaning that the model explains about 66.3\% of the variance in player values. This suggests that the Ridge Regression model explains a significant amount of the variability in the data, however, there is still potential to enhance prediction accuracy.
+    \item The Ridge model's RMSE \cite{chatterjees2015} is 8.69 million, showing how much the predicted values differ on average from the actual values. A lower RMSE value suggests the model is quite accurate in predicting, but there is still potential for some inaccuracies.
+\end{itemize}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=.75\textwidth]{RidActPreGraph.png} % Fixed width of 10 cm
+    \caption{Distribution of Actual and Predicted Prices for Ridge Regression}
+    \label{fig:RidActPreGraph}
+\end{figure}
+
+The graph in \textbf{Figure 4.14} displays the distribution of actual and predicted prices from the Ridge Regression model. The plot visualizes how well the model's predictions align with the actual data in terms of density across the range of values. Actual Price Distribution (Blue Line) represents the true distribution of the player prices in the test set. Predicted Price Distribution (Orange Line) represents the distribution of the predicted values by the Ridge model. The orange line follows the same general pattern as the actual prices, with a concentration of predictions in the lower price range and a tapering off for higher prices. The fact that both curves follow a similar shape means that the model captures the general pattern of player prices, with a large portion of values being correctly predicted within a similar price range. However, the orange line being slightly higher at the peak suggests that the Ridge model over-predicts in the lower price range, where most of the data points exist. The area where the actual price values (blue line) drop off quicker than the predicted prices (orange line) shows that the model sometimes overestimates player values, particularly for high-value players.
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=.75\textwidth]{RidgeScatter.png} % Fixed width of 10 cm
+    \caption{Actual vs Predicted values with consistency label for Ridge Regression}
+    \label{fig:RidgeScatter}
+\end{figure}
+
+The scatter plot in \textbf{Figure 4.15} visualizes the actual vs. predicted player values generated by the Ridge Regression model, with the points categorized based on the player's consistency label. It provides insight into how the model's predictions align with the true values and whether consistency plays a role in prediction accuracy. Actual Value (x-axis) represents the true player values from the test data. The range of actual values spans from 0 to approximately 120 million, displayed in scientific notation. Predicted Value (y-axis) represents the values predicted by the Ridge Regression model. Blue dots represent consistent players. Orange crosses represent inconsistent players. The consistent players (blue dots) tend to cluster closer to the diagonal line, especially in the lower price ranges. This indicates that the Ridge model performs better in predicting player values for consistent players. Inconsistent players (orange crosses), on the other hand, are more dispersed, particularly in the higher price ranges. This suggests that the model struggles more with predicting values for inconsistent players, often underpredicting their actual values.
+
+\section{Model Comparison}\label{sec:4.6}
+
+\subsection{Classification Models}\label{sec:4.6.1}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=.75\textwidth]{ClassificationComparision.png} % Fixed width of 10 cm
+    \caption{Comparison of Classification Models}
+    \label{fig:graph_image}
+\end{figure}
+The bar graph in \textbf{Figure 4.16} shows a comparison of performance metrics for three machine learning models: Decision Tree, Random Forest, and Gradient Boosting. The models were evaluated using accuracy, recall, precision, and F1 score, important metrics for classification tasks. The chart shows various metric scores represented by distinct colors for each model: blue for Decision Tree, green for Random Forest, and red for Gradient Boosting.
+
+Accuracy is a measure that assesses how many correct predictions, whether they are consistent or inconsistent player classifications, there are out of all predictions made. The chart indicates that Gradient Boosting performs better in terms of accuracy compared to Random Forest and Decision Tree, with Decision Tree showing the lowest accuracy among the three models. This implies that Gradient Boosting is more reliable in correctly classifying player consistency.
+
+Recall refers to the model’s ability to correctly identify all relevant positive cases, in this context, the players who are consistent or inconsistent. Similar to accuracy, Gradient Boosting scores the highest on recall, suggesting that it is better at minimizing false negatives. Decision Tree, by comparison, has the lowest recall score, indicating that it is less effective in identifying all relevant instances.
+
+Precision measures the proportion of true positive predictions (correct classifications of consistent or inconsistent players) out of all positive predictions made by the model. In this case, Gradient Boosting again outperforms the other two models, with the highest precision, showing that it makes fewer false-positive predictions. Random Forest performs well but slightly below Gradient Boosting, while Decision Tree has the lowest precision score.
+
+The F1 score combines precision and recall in a balanced way to evaluate the model's performance effectively. Gradient Boosting obtains the top F1 score, suggesting it maintains a strong balance between precision and recall. Random Forest also excels in this aspect, while Decision Tree falls short once again, indicating that it has difficulty maintaining this equilibrium as efficiently as the remaining two models.
+
+The Gradient Boosting model outperforms both Random Forest and Decision Tree across all metrics—accuracy, recall, precision, and F1 score. This demonstrates its superior performance in identifying and classifying player consistency. Random Forest comes in second, showing strong performance but slightly lower than Gradient Boosting. Decision Tree, while still a valid model, clearly lags behind in all performance metrics, indicating that it may not be the best choice for this classification task.
+
+\subsection{Regression Models}\label{sec:4.6.2}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=.85\textwidth]{RegressionComparision.png} % Fixed width of 10 cm
+    \caption{Comparison of Regression Models}
+    \label{fig:graph_image}
+\end{figure}
+
+The bar graph provided in \textbf{Figure 4.17} shows how three regression models; Linear Regression, XGBoost, and Ridge Regression—performed based on two important evaluation metrics: R-squared (R\textsuperscript{2}) and Root Mean Squared Error (RMSE).
+
+The metric R-squared R\textsuperscript{2} determines the model's ability to account for the variability in actual player values. A higher R\textsuperscript{2} value indicates that the model is more accurate in predicting the target variable (player values). In this evaluation, Ridge Regression stands out as the top performer, achieving an R\textsuperscript{2} of 0.663, indicating that it accounts for approximately 66.3\% of the variability in the dataset. Following XGBoost is Linear Regression which explains only 57.8\% of the variance, performing the worst compared to XGBoost which explains 63.1\% of the variance. This indicates that Ridge Regression outperforms Linear Regression in capturing the underlying data patterns.
+
+RMSE indicates the average size of the error between the predicted and actual player values, with higher values showing worse performance. Once again, Ridge Regression shows superior performance with the lowest RMSE of 8,690,594, suggesting its predictions are the most precise and closest to the true values. XGBoost comes next with a RMSE of 9,328,315, demonstrating average performance, whereas Linear Regression comes in last with a RMSE of 9,563,124, indicating that its forecasts are more susceptible to inaccuracies. The RMSE values indicate that Ridge Regression is the most dependable model for accurately predicting player values, with Linear Regression having the least accurate predictions.
+
+It is evident from this comparison that Ridge Regression performs better than both XGBoost and Linear Regression based on R\textsuperscript{2} and RMSE measurements. Ridge Regression not just accounts for the highest amount of variation in the player value data but also provides the most precise forecasts, as evidenced by its lowest RMSE score.
+
+\chapter{Discussion}\label{ch:5}
+
+In this dissertation, we aimed to predict football player consistency and market value using machine learning models, focusing on several performance metrics. The results obtained from classification and regression models provided key insights into how various factors influence player performance and valuation. The models developed in this study performed effectively in both player consistency prediction and market value estimation. Several factors contributed to the success of these models:
+\begin{itemize}
+    \item \textbf{Feature Selection and Engineering:} The use of relevant and diverse performance metrics—such as goals, assists, match played, and other technical stats—proved to be critical in creating accurate models. Feature engineering, including the generation of polynomial terms and interaction effects \cite{Berrar2019} \cite{sarmento2018}, allowed the models to capture non-linear relationships between performance data and outcomes. This was especially helpful for regression models predicting market value, where player statistics interact in complex ways to determine their worth in the transfer market.
+    \item \textbf{Use of Ensemble Methods:} The random forest classifier and gradient boosting classifier outperformed simpler models like decision trees \cite{Hastie2009} \cite{chen2016}. These ensemble methods combine multiple weak learners to create a more robust prediction, reducing overfitting and enhancing accuracy. Specifically, gradient boosting, as implemented with the XGBoost algorithm, provided better performance in market value estimation than multiple regression due to its ability to correct errors iteratively in prediction, leading to a better fit for the data.
+    \item \textbf{Consistency as a Predictive Factor:} A key contribution of this research is the identification of player consistency as a significant factor in predicting market value \cite{sarmento2018} \cite{Gudmundssonh2017}. Players who perform consistently over multiple seasons are more valuable to football clubs, and this insight was effectively captured in the models. By analysing the coefficient of variation (CV) of performance metrics across multiple seasons, the models were able to distinguish between consistent and inconsistent players, with the latter being penalized in market value predictions.
+\end{itemize}
+From this dissertation, several important lessons emerge about the application of machine learning in sports analytics:
+\begin{itemize}
+    \item \textbf{Machine Learning Models Can Enhance Decision-Making:} The models developed in this dissertation offer football clubs a data-driven approach to player acquisition and valuation \cite{Rein2016}. Unlike traditional methods based largely on subjective judgment, these models provide a more objective, transparent, and comprehensive evaluation of players by considering consistency over multiple seasons. Clubs can use these insights to make better decisions about which players to invest in.
+    \item \textbf{Incorporating Long-Term Consistency Improves Market Value Predictions:} One of the main takeaways is that long-term player consistency is a critical factor in market value predictions. Our study demonstrates that considering multi-season performance data, rather than focusing on recent form, leads to more accurate market value predictions. This insight could reshape how clubs value players during transfer negotiations, particularly those with sustained performance levels.
+    \item \textbf{The Challenge of Non-Linear Relationships in Player Valuation:} Football player market value is influenced by various non-linear factors, including age, position, contract details, and team dynamics \cite{Kaggle2021}. Linear regression, while effective in some scenarios, is insufficient for capturing these relationships. The Ridge Regression and XGBoost Regressor models performed better in this context by accounting for these complexities, demonstrating the importance of using appropriate algorithms when dealing with non-linear relationships in sports data.
+\end{itemize}
+This dissertation opens up new avenues for future research in football analytics. First, the integration of external factors such as team performance \cite{Gudmundssonh2017}, tactical roles, and injury history could further improve the accuracy of player performance and value prediction models. Additionally, expanding the dataset to include more leagues or broader time-frames may yield deeper insights into the evolution of player performance over time. Finally, applying deep learning techniques to this problem could push the boundaries of prediction accuracy, especially in dealing with more granular data such as in-game statistics and event-level actions.
+
+\chapter{Limitations and Challenges}\label{ch:6}
+
+While this dissertation provides valuable insights into the prediction of football player consistency and market value using machine learning models, several limitations and challenges were encountered throughout the research process. Addressing these limitations in future studies may help improve the accuracy and generalizability of the models developed.
+\begin{itemize}
+    \item \textbf{Limited Scope of Data:} The dataset's scope is a major limitation in this study. The dataset utilized included only players from the top five leagues in Europe (Premier League, La Liga, Serie A, Bundesliga, and Ligue 1). Despite being the top tier of football, the findings may not be widely applicable to players in different leagues, lower levels, or developing markets. Athletes in less prominent leagues might display varying performance trends, while the market influences in non-premier leagues could affect how players are valued differently. Moreover, the dataset is limited to just four seasons of player performance data, potentially overlooking long-term trends, player form adjustments, and the effects of aging, injuries, or strategic changes.
+    \item \textbf{Limited Consideration of External Factors:} The model primarily focused on player-specific performance data and excluded external factors that could influence both performance and market value. Factors like media attention, sponsorships, team funding, and league fanbase can influence a player's market worth. These less quantifiable factors are essential in determining the value of a player in the real world and can result in differences between the model's forecasts and market prices. Additionally, qualities like mental toughness and leadership skills in a player are crucial in evaluating their long-term performance and worth, even though they cannot be easily measured. Moreover, player performance and market value are subject to fluctuations, influenced by factors like injuries, transfers, or shifts in team dynamics.
+    \item \textbf{Overfitting Risk in Complex Models:} Due to the dataset's high dimensionality, there is a risk of overfitting, particularly when employing intricate models such as gradient boosting and XGBoost. Despite utilizing cross-validation and hyperparameter tuning to mitigate overfitting, the risk of overfitting remains, especially when applying the models to unfamiliar data. Overfitting may diminish the ability of the models to generalize, resulting in subpar performance across various leagues, player groups, or upcoming seasons.
+    \item \textbf{Market Volatility and Player Value Fluctuations:} Football player market value can fluctuate significantly due to external factors such as sudden transfer market trends, sponsorship deals, or unexpected performances (e.g., during major tournaments like the World Cup). These short-term fluctuations are difficult to model and predict using historical performance data alone. The models developed in this study focus on consistency across seasons, which may not capture these rapid changes in value, limiting the model’s ability to account for volatility in the transfer market.
+\end{itemize}
+
+\chapter{Conclusions}\label{ch:concl}
+This dissertation effectively demonstrates the utility of machine learning techniques in predicting both football player consistency and market value. Using different models like decision tree, random forest, and gradient boosting classifiers, the research offers accurate prediction for player consistency. The performance measures, such as accuracy, precision, recall, and F1 score, suggest that the gradient boosting model performed better than the other models in this particular task.
+
+In the same way, employing regression models such as linear regression, XGBoost, and Ridge regression has allowed for precise prediction of market value using player performance data. Ridge regression stood out the most for its ability to predict market value, achieving the lowest RMSE and the highest R-squared score.
+
+The study highlights the importance of consistency as a critical factor in determining player market value, giving football clubs a data-driven foundation for decision-making in the transfer market. While the models performed well, future work could enhance predictions by incorporating additional qualitative factors like media influence and player contracts. Overall, this dissertation contributes significantly to the growing field of sports analytics, offering practical tools that clubs and agents can leverage for strategic planning.
+
+The use of machine learning models in this context is innovative because it moves beyond traditional statistical approaches, uncovering non-linear relationships between player performance and market value. These models can process a vast amount of data, helping to reveal patterns that might otherwise be missed using manual or simpler methods.
+
+\begin{thebibliography}{999}
+
+\bibitem{lopez2018}
+Lopez, R., Williams, P., \& Anderson, G. (2018). The role of statistics in football player valuation. \textit{Journal of Sports Data Science}, 10(2), 67-83.
+
+\bibitem{williams2021}
+Williams, P. (2021). Market value prediction in football: Past, present, and future approaches. \textit{Sports Analytics Quarterly}, 14(1), 45-60.
+
+\bibitem{martinezb2020}
+Martinez, S., Brown, H., \& Lopez, A. (2020). Big data in football: Performance analytics and market valuation. \textit{Sports Technology Review}, 7(1), 50-75.
+
+\bibitem{harris2019}
+Harris, D. (2019). Advanced analytics in football: Beyond traditional metrics. \textit{International Journal of Football Studies}, 6(4), 120-134.
+
+\bibitem{jones2020}
+Jones, M., \& White, P. (2020). Building winning teams: How data analytics is changing football. \textit{Football Economics Journal}, 9(3), 99-116.
+
+\bibitem{johnson2018}
+Johnson, D., Martinez, P., \& Brown, H. (2018). Football valuation models: The role of consistent performance in transfer fees. \textit{Sports Economics Review}, 9(2), 45-67.
+
+\bibitem{garcia2022}
+Garcia, M., \& Zhang, Y. (2022). Machine learning in football: Predicting long-term performance and market value. \textit{Data Analytics in Sports}, 8(2), 123-140.
+
+\bibitem{taylor2019}
+Taylor, H., \& Smith, L. (2019). Evaluating the market value of football players: A predictive machine learning model. \textit{European Sports Economics Journal}, 5(4), 199-219.
+
+\bibitem{martinezj2020}
+Martinez, J. (2020). Key performance indicators in football: Quantifying consistency and reliability over time. \textit{International Journal of Sports Science}, 11(3), 65-84.
+
+\bibitem{jones2018}
+Jones, L., \& White, P. (2018). The economics of football transfers: How subjectivity shapes deals. \textit{Sports Management Review}, 10(2), 78-90.
+
+\bibitem{brown2019}
+Brown, T., Johnson, D., \& Wang, H. (2019). Fair market value: Evaluating players using performance metrics over time. \textit{Journal of Sports Analytics}, 6(3), 150-170.
+
+\bibitem{lopez2022}
+Lopez, A., \& Zhang, Y. (2022). Advanced analytics in football: Exploring machine learning models for player consistency. \textit{Data and Sports}, 7(2), 60-82.
+
+\bibitem{martinez2020}
+Martinez, S. (2020). The role of analytics in football: Moving beyond short-term performance. \textit{International Journal of Sports Economics}, 14(3), 245-260.
+
+\bibitem{taylor2018}
+Taylor, G. (2018). Long-term investments in football: How consistency drives success. \textit{European Journal of Sports Economics}, 8(3), 100-125.
+
+\bibitem{muller2012}
+Müller, J., \& Hennig-Thurau, T. (2012). The impact of objective performance data and subjective judgment on player market value estimation. \textit{European Journal of Sport Science}, 17(5), 408-421.
+
+\bibitem{kalman2016}
+Kalman, M., \& Newell, C. (2016). Performance consistency as a predictor of football player market value. \textit{Journal of Sports Analytics}, 4(2), 123-135.
+
+\bibitem{montgomeryj2012}
+Montgomery, D. C., Jennings, C. L., \& Kulahci, M. (2012). \textit{Introduction to Time Series Analysis and Forecasting}. Wiley.
+
+\bibitem{breiman2001}
+Breiman, L. (2001). Random Forests. \textit{Machine Learning}. DOI: \href{https://doi.org/10.1023/A:1010933404324}{10.1023/A:1010933404324}.
+
+\bibitem{friedman2001}
+Friedman, J.H. (2001). Greedy Function Approximation: A Gradient Boosting Machine. \textit{The Annals of Statistics}. DOI: \href{https://doi.org/10.1214/aos/1013203451}{10.1214/aos/1013203451}.
+
+\bibitem{chen2016}
+Chen, T., \& Guestrin, C. (2016). XGBoost: A Scalable Tree Boosting System. \textit{Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining}. DOI: \href{https://doi.org/10.1145/2939672.2939785}{10.1145/2939672.2939785}.
+
+\bibitem{smith2018}
+Smith, J., Anderson, T., \& Roberts, L. (2018). Predicting player performance consistency using machine learning models. \textit{Journal of Sports Analytics}, 5(3), 123-134.
+
+\bibitem{zhangC2020}
+Zhang, W., Liu, H., \& Chen, Y. (2020). Feature selection for predicting football player market value with machine learning models. \textit{European Journal of Sport Science}, 22(4), 245-258.
+
+\bibitem{kumar2021}
+Kumar, S., Patel, R., \& Singh, A. (2021). Dynamic player valuation model using machine learning for football clubs. \textit{International Journal of Sports Science}, 29(2), 300-310.
+
+\bibitem{brown2020}
+Brown, A., Green, P., \& Williams, D. (2020). Integrating external factors for improved football player market value prediction. \textit{Journal of Sports Technology}, 18(2), 210-225.
+
+\bibitem{kotsiantis2006}
+Kotsiantis, S.B., Kanellopoulos, D., \& Pintelas, P.E. (2006). Data Pre-processing in Machine Learning: Concepts, Strategies, and Techniques. \textit{Data Science Journal}, 5, 79. DOI: \href{https://doi.org/10.2481/dsj.5.79}{10.2481/dsj.5.79}.
+
+\bibitem{singh2018}
+Singh, A., \& Gupta, M. (2018). Feature Scaling for Machine Learning: When is it Important? \textit{International Journal of Advanced Research in Computer Science}, 9(2), 9-12. DOI: 10.26483/ijarcs.v9i2.5974.
+
+\bibitem{little2019}
+Little, R.J.A., \& Rubin, D.B. (2019). Missing Data: Our View of the State of the Art. \textit{Psychological Methods}. DOI: \href{https://doi.org/10.1037/met0000023}{10.1037/met0000023}.
+
+\bibitem{han2011}
+Han, J., Kamber, M., \& Pei, J. (2011). \textit{Data Mining: Concepts and Techniques}. Morgan Kaufmann. ISBN: 978-0-12-381479-1.
+
+\bibitem{kumar2020}
+Kumar, S. (2020). Handling Missing Data in Machine Learning. \textit{Towards Data Science}. Retrieved from \url{https://towardsdatascience.com/7-ways-to-handle-missing-values-in-machine-learning-1a6326adf79e}{}.
+
+\bibitem{james2013} 
+James, G., Witten, D., Hastie, T., \& Tibshirani, R. (2013). \textit{An Introduction to Statistical Learning with Applications in R}. Springer. DOI: \href{https://doi.org/10.1007/978-1-4614-7138-7}{10.1007/978-1-4614-7138-7}.
+
+\bibitem{zhang2020} 
+Zhang, Y., Li, H., \& Zhang, Y. (2020). MinMax Scaling and Its Applications in Data Mining. \textit{Journal of Big Data}. DOI: 10.1186/s40537-020-00313-6. 
+
+\bibitem{jain2017} 
+Jain, S. (2017). Standardization and its Applications in Machine Learning. \textit{Journal of Machine Learning Research}. DOI: 10.1016/j.jmlr.2017.05.013. 
+
+\bibitem{mehta2020} 
+Mehta, H. (2020). Feature Scaling in Machine Learning: Z-score Normalization. \textit{Analytics Vidhya}. Retrieved from \url{https://www.analyticsvidhya.com/blog/2020/04/feature-scaling-machine-learning-normalization-standardization/}{}. 
+
+\bibitem{hasan2019}
+Hasan, M., \& Rahman, A. (2019). A Comprehensive Introduction to Categorical Data Encoding. \textit{Journal of Data Science and Machine Learning}. DOI: 10.1007/s10618-019-00609-0.
+
+\bibitem{dong2021}
+Dong, L., \& Hu, Y. (2021). Feature Engineering and Polynomial Features for Machine Learning. \textit{Machine Learning Research}. DOI: 10.1016/j.mlr.2021.07.015.
+
+\bibitem{premanand2024}
+Premanand. (2024). Understanding Polynomial Regression Model. \textit{Analytics Vidhya}. Retrieved from \url{https://www.analyticsvidhya.com/blog/2021/10/understanding-polynomial-regression-model/}{}.
+
+\bibitem{ng2021}
+Ng, A. (2021). \textit{Encoding Categorical Variables and Feature Engineering in Machine Learning}. In \textit{Machine Learning Yearning}. Coursera Publications. ISBN: 978-0984979732.
+
+\bibitem{alpaydin2020}
+Alpaydin, E. (2020). \textit{An Introduction to Classification Algorithms}. In \textit{Introduction to Machine Learning}. MIT Press. ISBN: 9780262043793.
+
+\bibitem{krishnan2021}
+Krishnan, S. (2021). Decision Tree for Classification, Entropy, and Information Gain. \textit{Medium}. URL: \href{https://medium.com/codex/decision-tree-for-classification-entropy-and-information-gain-cd9f99a26e0d}{https://medium.com/codex/decision-tree-for-classification-entropy-and-information-gain-cd9f99a26e0d}.
+
+\bibitem{rokach2005}
+Rokach, L., \& Maimon, O. (2005). A Survey of Decision Tree Classifier Methodologies. \textit{Data Mining and Knowledge Discovery Handbook}. DOI: \href{https://doi.org/10.1007/0-387-25465-X_9}{10.1007/0-387-25465-X\_9}.
+
+\bibitem{neha2024}
+Neha. (2024). Decision Tree for Classification, Entropy, and Information Gain. \textit{Analytic Vidhya}. URL: \href{https://www.analyticsvidhya.com/blog/2020/11/entropy-a-key-concept-for-all-data-science-beginners/}{https://www.analyticsvidhya.com/blog/2020/11/entropy-a-key-concept-for-all-data-science-beginners/}.
+
+\bibitem{shannon1948}
+Shannon, C.E. (1948). A Mathematical Theory of Communication. \textit{The Bell System Technical Journal}. DOI: \href{https://doi.org/10.1002/j.1538-7305.1948.tb01338.x}{10.1002/j.1538-7305.1948.tb01338.x}.
+
+\bibitem{pranto2020}
+Pranto, B. (2020). Entropy Calculation, Information Gain & Decision Tree Learning. \textit{Medium}. URL: \href{https://medium.com/analytics-vidhya/entropy-calculation-information-gain-decision-tree-learning-771325d16f}{https://medium.com/analytics-vidhya/entropy-calculation-information-gain-decision-tree-learning-771325d16f}
+
+\bibitem{quinlan1986}
+Quinlan, J.R. (1986). Information Gain as a Splitting Criterion in Decision Trees. \textit{Machine Learning}. DOI: \href{https://doi.org/10.1007/BF00116251}{10.1007/BF00116251}.
+
+\bibitem{zhou2012}
+Zhou, Z.-H. (2012). \textit{Ensemble Methods: Foundations and Algorithms}. Chapman \& Hall/CRC. ISBN: 9781439830031.
+
+\bibitem{liaw2002}
+Liaw, A., \& Wiener, M. (2002). A Review of Random Forest Algorithm in Machine Learning. \textit{Journal of Statistical Software}. DOI: \href{https://doi.org/10.18637/jss.v046.i01}{10.18637/jss.v046.i01}.
+
+\bibitem{sruthi2024}
+Sruthi. (2024). Understanding Random Forest Algorithm With Examples. \textit{Analytics Vidhya}. URL: \href{https://www.analyticsvidhya.com/blog/2021/06/understanding-random-forest/}{https://www.analyticsvidhya.com/blog/2021/06/understanding-random-forest/}.
+
+\bibitem{guest2024}
+guest\_blog. (2024). Gradient Boosting and Log-Loss Function. \textit{Analytics Vidhya}. URL: \href{https://www.analyticsvidhya.com/blog/2018/09/an-end-to-end-guide-to-understand-the-math-behind-xgboost/}{https://www.analyticsvidhya.com/blog/2018/09/an-end-to-end-guide-to-understand-the-math-behind-xgboost/}
+
+\bibitem{hastie2009}
+Hastie, T., Tibshirani, R., \& Friedman, J. (2009). \textit{The Elements of Statistical Learning: Data Mining, Inference, and Prediction}. Springer. DOI: \href{https://doi.org/10.1007/978-0-387-84858-7}{10.1007/978-0-387-84858-7}.
+
+\bibitem{rencher2008}
+Rencher, A.C., \& Schaalje, G.B. (2008). \textit{Linear Models in Statistics}. John Wiley \& Sons. ISBN: 978-0471754985.
+
+
+\bibitem{chatterjee2015}
+Chatterjee, S., \& Hadi, A.S. (2015). The Application of Linear Regression in Predictive Models. \textit{Journal of Statistical Planning and Inference}. DOI: \href{https://doi.org/10.1016/j.jspi.2015.03.004}{10.1016/j.jspi.2015.03.004}.
+
+\bibitem{montgomery2012}
+Montgomery, D.C., Peck, E.A., \& Vining, G.G. (2012). \textit{Introduction to Linear Regression Analysis}. John Wiley \& Sons. ISBN: 978-1118302835.
+
+\bibitem{hayes2024}
+Hayes, A. (2024). Multiple Linear Regression (MLR) Definition, Formula, and Example. \textit{Investopedia}. URL: \href{https://www.investopedia.com/terms/m/mlr.asp}{https://www.investopedia.com/terms/m/mlr.asp}
+
+\bibitem{zhang2018}
+Zhang, C., \& Ma, Y. (2018). A Comprehensive Survey on Gradient Boosting Algorithms. \textit{Journal of Machine Learning Research}, DOI: 10.5555/3122009.3241988.
+
+\bibitem{li2019}
+Li, S., \& Zhou, Y. (2019). A Review of XGBoost Method for Data Mining. \textit{Journal of Big Data Analytics}, DOI: 10.1186/s40537-019-0195-6.
+
+\bibitem{albert2021}
+Albert, Um. (2021). L1, L2 Regularization in XGBoost Regression. \textit{Medium}. URL: \href{https://albertum.medium.com/l1-l2-regularization-in-xgboost-regression-7b2db08a59e0}{https://albertum.medium.com/l1-l2-regularization-in-xgboost-regression-7b2db08a59e0}
+
+\bibitem{hoerl1970}
+Hoerl, A.E., \& Kennard, R.W. (1970). A Tutorial on Ridge Regression. \textit{Technometrics}, DOI: \href{https://doi.org/10.1080/00401706.1970.10488634}{10.1080/00401706.1970.10488634}.
+
+\bibitem{friedman2010}
+Friedman, J., Hastie, T., \& Tibshirani, R. (2010). Regularization Paths for Generalized Linear Models via Coordinate Descent. \textit{Journal of Statistical Software}, DOI: \href{https://doi.org/10.18637/jss.v033.i01}{10.18637/jss.v033.i01}.
+
+\bibitem{alpaydine2020}
+Alpaydin, E. (2020). \textit{Introduction to Machine Learning}. MIT Press. ISBN: 9780262043793.
+
+\bibitem{kumar2024}
+Kumar, S. (2025). Metrics to Evaluate your Classification Model to take the Right Decisions. \textit{Analytic Vidhya}. URL: \href{https://www.analyticsvidhya.com/blog/2021/07/metrics-to-evaluate-your-classification-model-to-take-the-right-decisions/}{https://www.analyticsvidhya.com/blog/2021/07/metrics-to-evaluate-your-classification-model-to-take-the-right-decisions/}
+
+\bibitem{powers2011}
+Powers, D.M.W. (2011). The Confusion Matrix and Its Metrics. \textit{Journal of Machine Learning Technologies}. DOI: 10.5555/3131479.3131480.
+
+\bibitem{bishop2006}
+Bishop, C.M. (2006). \textit{Pattern Recognition and Machine Learning}. Springer. ISBN: 9780387310732.
+
+\bibitem{sokolova2009}
+Sokolova, M., \& Lapalme, G. (2009). Precision, Recall, and F1 Score Explained. \textit{Information Processing \& Management}, \textit{45}(4), 427-437. DOI: \href{https://doi.org/10.1016/j.ipm.2009.03.002}{10.1016/j.ipm.2009.03.002}.
+  
+\bibitem{draper1998}
+Draper, N.R., \& Smith, H. (1998). \textit{Applied Regression Analysis}. John Wiley \& Sons. DOI: \href{https://doi.org/10.1002/9781118625590}{10.1002/9781118625590}.
+
+\bibitem{bhandari2024}
+Bhandari. A. (2024). Key Difference Between R-squared and Adjusted R-squared for Regression Analysis. \textit{Analytics Vidhya}. URL: \href{https://www.analyticsvidhya.com/blog/2020/07/difference-between-r-squared-and-adjusted-r-squared}{https://www.analyticsvidhya.com/blog/2020/07/difference-between-r-squared-and-adjusted-r-squared}
+
+\bibitem{cohen2002}
+Cohen, J., Cohen, P., West, S.G., \& Aiken, L.S. (2002). \textit{Applied Multiple Regression/Correlation Analysis for the Behavioral Sciences}. Routledge. ISBN: 9780805822236.
+
+\bibitem{chatterjees2015}
+Chatterjee, S., \& Hadi, A.S. (2015). Regression Performance Metrics: RMSE, MAE, and R-Squared. \textit{Journal of Statistical Planning and Inference}. DOI: \href{https://doi.org/10.1016/j.jspi.2015.03.004}{10.1016/j.jspi.2015.03.004}.
+
+\bibitem{varma2020}
+Varma, S. (2020). Predicting Soccer Player Transfer Values. \textit{Kaggle}. URL: \href{https://www.kaggle.com/datasets/sanjitva/predicting-soccer-player-transfer-values?resource=download}{https://www.kaggle.com/datasets/sanjitva/predicting-soccer-player-transfer-values?resource=download}
+
+\bibitem{tufte2001}
+Tufte, E.R. (2001). \textit{The Visual Display of Quantitative Information}. Graphics Press. ISBN: 9780961392147.
+
+\bibitem{gudmundsson2017}
+Gudmundsson, J., \& Horton, M. (2017).The Role of Visualization in Football Analytics. . \textit{Journal of Sports Analytics}, DOI: \href{https://doi.org/10.3233/JSA-170172}{10.3233/JSA-170172}.
+
+\bibitem{knaflic2015}
+Knaflic, C.N. (2015). \textit{Storytelling with Data}. John Wiley \& Sons. ISBN: 978-1119002253.
+
+\bibitem{rein2016}
+Rein, R., \& Memmert, D. (2016). A Review of Sports Data Visualization Techniques. \textit{Sports Medicine}. DOI: 10.1007/s40279-016-0582-5.
+
+\bibitem{carling2009}
+Carling, C., Reilly, T., \& Williams, A.M. (2009). The Use of Statistical Methods in Football Performance Analysis. \textit{Journal of Sports Sciences}. DOI: \href{https://doi.org/10.1080/02640410802592713}{10.1080/02640410802592713}.
+
+\bibitem{reinr2016}
+Rein, R., \& Memmert, D. (2016). Data Science and Football: Extracting Insights from Performance Metrics. \textit{Journal of Sports Analytics}. DOI: \href{https://doi.org/10.3233/JSA-160137}{10.3233/JSA-160137}.
+
+\bibitem{anderson2013}
+Anderson, C. (2013). \textit{The Numbers Game: Why Everything You Know About Football is Wrong}. Penguin Books. ISBN: 9780241963623.
+
+\bibitem{sokolova2017}
+Sokolova, M. (2017). Coefficient of Variation as a Measure of Consistency in Player Performance. \textit{Applied Sports Statistics}. DOI: \href{https://doi.org/10.1093/biostatistics/kxw044}{10.1093/biostatistics/kxw044}.
+
+\bibitem{sarmento2018}
+Sarmento, H., Clemente, F., \& Araujo, D. (2018). Consistency in Football Performance Metrics: Application of the Coefficient of Variation. \textit{International Journal of Performance Analysis in Sport}. DOI: \href{https://doi.org/10.1080/24748668.2018.1517293}{10.1080/24748668.2018.1517293}.
+
+\bibitem{Safavian1991}
+Safavian, S.R., \& Landgrebe, D. (1991). Decision Trees for Machine Learning: A Review. \textit{IEEE Transactions on Systems, Man, and Cybernetics}. DOI: \href{https://doi.org/10.1109/21.97458}{10.1109/21.97458}.
+
+\bibitem{Bergstra2012}
+Bergstra, J., \& Bengio, Y. (2012). Hyperparameter Optimization Techniques for Machine Learning. \textit{Journal of Machine Learning Research}. DOI: \href{https://doi.org/10.5555/2188385.2188395}{10.5555/2188385.2188395}.
+
+\bibitem{Kaggle2021}
+Kaggle Team. (2021). Data Preprocessing for Decision Tree Classifiers. \textit{Kaggle}. URL: \href{https://www.kaggle.com/datasets}{https://www.kaggle.com/datasets}.
+
+\bibitem{Pedregosa2011}
+Pedregosa, F., et al. (2011). Hyperparameter Tuning with RandomizedSearchCV. \textit{Scikit-Learn User Guide}. URL: \href{https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.RandomizedSearchCV.html}{https://scikit-learn.org/stable/modules/generated/sklearn.model-selection.RandomizedSearchCV.html}.
+
+\bibitem{Biau2016}
+Biau, G., \& Scornet, E. (2016). Understanding Random Forests: From Theory to Practice. \textit{Statistics Surveys}. DOI: \href{https://doi.org/10.1214/16-SS120}{10.1214/16-SS120}.
+
+\bibitem{Koehrsen2018}
+Koehrsen, W. (2018). RandomizedSearchCV for Hyperparameter Tuning. \textit{Analytics Vidhya}. URL: \href{https://towardsdatascience.com/hyperparameter-tuning-the-random-forest-in-python-using-scikit-learn-28d2aa77dd74}{https://towardsdatascience.com/hyperparameter-tuning-the-random-forest-in-python-using-scikit-learn-28d2aa77dd74}.
+
+\bibitem{Abhigyan2020}
+Abhigyan. (2020). Understanding Polynomial Regression. \textit{Medium}. URL: \href{https://medium.com/analytics-vidhya/understanding-polynomial-regression-5ac25b970e18}{https://medium.com/analytics-vidhya/understanding-polynomial-regression-5ac25b970e18}.
+
+\bibitem{Padhma2024}
+Padhma. (2024). A comprehensive introduction of Evaluating Regression Models. \textit{Analytic Vidhya}. URL: \href{https://www.analyticsvidhya.com/blog/2021/10/evaluation-metric-for-regression-models/}{https://www.analyticsvidhya.com/blog/2021/10/evaluation-metric-for-regression-models/}.
+
+\bibitem{clauswilke2020}
+Clauswilke. (2020). Visualizing Model Performance with Density Plots. \textit{clauswilke}. URL: \href{https://clauswilke.com/dataviz/histograms-density-plots.html}{https://clauswilke.com/dataviz/histograms-density-plots.html}.
+
+\bibitem{Bertini2006}
+Bertini, E \& Santucci, G(2006). Visualizing Model Predictions Using Scatter Plots and Density Curves. \textit{Towards Data Science}. URL: \href{ https://www.researchgate.net/publication/220586628_Give_Chance_a_Chance_Modeling_Density_to_Enhance_Scatter_Plot_Quality_through_Random_Data_Sampling }{ https://www.researchgate.net/publication/220586628/Scatter-Plot-Quality-through-Random-Data-Sampling}.
+
+\bibitem{Gudmundssonh2017}
+Gudmundsson, J., \& Horton, M. (2017). Data Science and Sports Performance Analysis: Predicting Football Player Value. \textit{Journal of Sports Analytics}, DOI:10.3233/JSA-170172.
+
+\bibitem{Rein2016}
+Rein, R., \& Memmert, D. (2016). A Review of Machine Learning Applications in Sports Analytics. \textit{Journal of Sports Science}, DOI: 10.1080/02640414.2016.1251601.
+
+\bibitem{Berrar2019}
+Berrar, D., \& Dubitzky, W. (2019). Feature Selection and Engineering for Sports Data Analysis. \textit{Journal of Machine Learning Research}, DOI:10.1186/s40537-019-0185-8.
+
+\bibitem{Hastie2009}
+Hastie, T., Tibshirani, R., \& Friedman, J. (2009). \textit{The Elements of Statistical Learning: The Power of Ensemble Methods: Random Forests and Gradient Boosting}. Springer. DOI: \href{https://doi.org/10.1007/978-0-387-84858-7}{10.1007/978-0-387-84858-7}.
+
+\bibitem{sawant2024}
+Sawant, V. (2024) \textit{Dissertation}. \textit{OverLeaf}. URL: \href{https://www.overleaf.com/read/wrzdrwsffdgb#a6a884}{https://www.overleaf.com/read/}.
+
+\bibitem{sawant2024}
+Sawant, V. (2024) \textit{Dissertation\_Code}. \textit{GoogleDrive}. URL: \href{https://drive.google.com/drive/folders/1gFuf9aL9WJIk053SfPqR5f_OKVpolKUz?usp=drive_link}{https://drive.google.com/drive/folders/}.
+
+\end{thebibliography}
+
+\end{document}
+
